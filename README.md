@@ -47,10 +47,21 @@ cd macuco-web-app
 
 After installing Miniconda in your home directory, activate it:
 
+**Linux / macOS:**
+
 ```bash
 source miniconda3/bin/activate
 conda init
 ```
+
+**Windows (PowerShell):**
+
+```powershell
+.\miniconda3\Scripts\activate
+conda init
+```
+
+> On Windows you can also use the **Anaconda Prompt** that comes with the Miniconda installation.
 
 Then create and activate the project environment:
 
@@ -69,8 +80,16 @@ pip install -r requirements.txt
 
 Copy the example file and set your own password:
 
+**Linux / macOS:**
+
 ```bash
 cp .env.example .env
+```
+
+**Windows (PowerShell):**
+
+```powershell
+Copy-Item .env.example .env
 ```
 
 Then edit the `.env` file and change `POSTGRES_PASSWORD` to a password of your choice.
