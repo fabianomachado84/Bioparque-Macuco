@@ -4,3 +4,7 @@ miniconda3/
 env/
 venv/
 macuco_env/
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class

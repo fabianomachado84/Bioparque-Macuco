@@ -2,7 +2,7 @@
 
 Web application developed for **Bioparque Macuco**, focused on course management and sales offered by the park.
 
-## Prerequisites
+## Pre-requisites
 
 Before getting started, make sure you have the following tools installed:
 
