@@ -103,3 +103,50 @@ docker compose up -d
 ```
 
 This will start a PostgreSQL container using the credentials defined in your `.env` file.
+
+### 6. Run migrations
+
+Apply the database migrations to create the tables:
+
+```bash
+python manage.py migrate
+```
+
+### 7. Run the development server
+
+```bash
+python manage.py runserver
+```
+
+The application will be available at [http://localhost:8000](http://localhost:8000).
+
+## Project Structure
+
+```
+macuco-web-app/
+├── core/                # Django project settings
+│   ├── settings.py      # Main configurations (DB, apps, middleware)
+│   ├── urls.py          # Root URL routing
+│   ├── wsgi.py          # WSGI entry point
+│   └── asgi.py          # ASGI entry point
+├── courses/             # Courses app (management and sales)
+│   ├── models.py        # Course data model
+│   ├── views.py         # Views (controllers)
+│   ├── admin.py         # Django admin configuration
+│   └── migrations/      # Database migrations
+├── .env.example         # Environment variables template
+├── docker-compose.yml   # PostgreSQL container setup
+├── manage.py            # Django CLI
+└── requirements.txt     # Python dependencies
+```
+
+## Useful Commands
+
+| Command | Description |
+|---|---|
+| `docker compose up -d` | Start the database |
+| `docker compose down` | Stop the database |
+| `python manage.py runserver` | Start the dev server |
+| `python manage.py makemigrations` | Generate new migrations |
+| `python manage.py migrate` | Apply migrations to the database |
+| `python manage.py createsuperuser` | Create an admin user |
