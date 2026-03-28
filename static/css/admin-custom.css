@@ -1,0 +1,38 @@
+#jazzy-sidebar {
+    background-color: #ffc107 !important;
+}
+
+#jazzy-sidebar[data-bs-theme="dark"] {
+    background-color: #ffc107 !important;
+    --bs-body-bg: #ffc107 !important;
+    --bs-secondary-bg: #ffc107 !important;
+    --bs-tertiary-bg: #ffc107 !important;
+    --bs-body-color: #212529 !important;
+}
+
+#jazzy-sidebar .nav-link,
+#jazzy-sidebar .nav-header,
+#jazzy-sidebar .brand-text,
+#jazzy-sidebar .info a,
+#jazzy-sidebar .sidebar-menu .nav-link p,
+#jazzy-sidebar .user-panel .info a {
+    color: #212529 !important;
+}
+
+#jazzy-sidebar .nav-link:hover {
+    background-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+#jazzy-sidebar .nav-link.active {
+    background-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+#jazzy-sidebar .sidebar-brand,
+#jazzy-sidebar .brand-link {
+    background-color: #e5ac06 !important;
+    color: #212529 !important;
+}
+
+#jazzy-sidebar .nav-icon {
+    color: #212529 !important;
+}
