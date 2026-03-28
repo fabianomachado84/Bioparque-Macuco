@@ -112,13 +112,25 @@ Apply the database migrations to create the tables:
 python manage.py migrate
 ```
 
-### 7. Run the development server
+### 7. Create a superuser (Django Admin)
+
+To access the admin panel, you need to create an admin user:
+
+```bash
+python manage.py createsuperuser
+```
+
+You will be prompted for a username, email, and password.
+
+### 8. Run the development server
 
 ```bash
 python manage.py runserver
 ```
 
 The application will be available at [http://localhost:8000](http://localhost:8000).
+
+The Django admin panel can be accessed at [http://localhost:8000/admin](http://localhost:8000/admin) using the superuser credentials created in the previous step.
 
 ## Project Structure
 
