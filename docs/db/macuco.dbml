@@ -1,0 +1,107 @@
+// ENUMS restrict data type
+Enum enrollment_status {
+  pending
+  approved
+  rejected
+}
+
+Enum payment_status {
+  pending
+  confirmed
+}
+
+Enum payment_method {
+  credit_card
+  pix
+  cash
+  donation_item
+  hybrid
+  scollarship
+}
+
+Enum course_status {
+  active
+  inactive
+}
+
+Enum donation_type {
+  dog_food
+  cat_food
+  bird_food
+}
+
+// team method
+Table User {
+  id int [pk, increment]
+  username varchar
+  email varchar
+  password varchar
+  is_active boolean
+  note: 'Tabela nativa do Django (auth_user) - Acesso exclusivo da equipe'
+}
+
+Table Employee {
+  id int [pk, increment]
+  user_id int [unique, ref: - User.id] 
+  role varchar
+  hire_date date
+}
+
+// client table (no login)
+Table Student {
+  id int [pk, increment]
+  name varchar
+  email varchar [unique]
+  cpf varchar [unique, note: 'Útil para futura validação de certificado']
+  phone varchar
+  emergency_contact varchar
+  note: 'Visitante/Aluno de compra rápida. Não acessa o painel.'
+}
+
+// class and courses tables
+Table Course {
+  id int [pk, increment]
+  name varchar
+  description text
+  duration_hours int
+  price decimal
+  status course_status
+  created_at datetime
+  updated_at datetime
+}
+
+Table Class {
+  id int [pk, increment]
+  course_id int [ref: > Course.id] 
+  start_date date
+  start_time time
+  end_time time
+  capacity int
+}
+
+Table instructor {
+  id int [pk, increment]
+  class_id int [ref: > Class.id]
+  employee_id int [ref: > Employee.id]
+  note: 'Relação N para N: Vários palestrantes por turma'
+}
+
+// employee and payment tables
+Table Enrollment {
+  id int [pk, increment]
+  student_id int [ref: > Student.id]
+  class_id int [ref: > Class.id] 
+  enrollment_date datetime
+  status enrollment_status
+}
+
+Table Payment {
+  id int [pk, increment]
+  enrollment_id int [ref: > Enrollment.id]
+  payment_date datetime
+  payment_method payment_method
+  money_amount decimal
+  item_quantity_kg decimal
+  status payment_status
+  approved_by_id int [ref: > Employee.id] // O funcionário que validou no caixa ou sistema
+}
