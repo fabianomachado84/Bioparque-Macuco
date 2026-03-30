@@ -10,6 +10,11 @@ Enum payment_status {
   confirmed
 }
 
+Enum payment_origin {
+  online
+  in_person
+}
+
 Enum payment_method {
   credit_card
   pix
@@ -93,6 +98,7 @@ Table Enrollment {
   class_id int [ref: > Class.id] 
   enrollment_date datetime
   status enrollment_status
+  is_overbooked boolean [default: false] //If admin create a enrollment with full capacity
 }
 
 Table Payment {
@@ -104,4 +110,5 @@ Table Payment {
   item_quantity_kg decimal
   status payment_status
   approved_by_id int [ref: > Employee.id] // O funcionário que validou no caixa ou sistema
+  payment_origin payment_origin [default: 'online'] // online or in_person
 }
