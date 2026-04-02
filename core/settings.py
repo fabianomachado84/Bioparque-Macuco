@@ -85,7 +85,7 @@ DATABASES = {
         'USER': os.getenv('POSTGRES_USER'),
         'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
         'HOST': 'localhost',
-        'PORT': '5432',
+        'PORT': '5433',
     }
 }
 
@@ -134,4 +134,3 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-print(os.getenv('POSTGRES_DB'))
