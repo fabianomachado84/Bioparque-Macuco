@@ -16,6 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.views.generic import TemplateView
 
 
 admin.site.site_header = "Portal Macuco"
@@ -23,5 +24,7 @@ admin.site.site_title = "Portal Bioparque Macuco"
 admin.site.index_title = "MacucoAdmin"
 
 urlpatterns = [
+    path('', TemplateView.as_view(template_name='home.html'), name='home'),
+    path('sobre/', TemplateView.as_view(template_name='sobre.html'), name='sobre'),
     path('admin/', admin.site.urls),
 ]

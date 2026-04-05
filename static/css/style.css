@@ -467,6 +467,239 @@ ul {
     opacity: 0.7;
 }
 
+/* ===== Sobre - Hero ===== */
+.sobre-hero {
+    width: 100%;
+    overflow: hidden;
+}
+
+.sobre-hero img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+}
+
+/* ===== Nosso Propósito ===== */
+.proposito {
+    background-color: var(--color-white);
+    padding: 3.5rem 1.5rem;
+}
+
+.proposito__container {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.proposito__title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--color-black);
+}
+
+.proposito__subtitle {
+    font-size: 1.0625rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: var(--color-black);
+}
+
+.proposito__text {
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: var(--color-gray);
+    margin-bottom: 0.75rem;
+}
+
+/* ===== Como Trabalhamos ===== */
+.como-trabalhamos {
+    background-color: var(--color-teal);
+    padding: 4rem 1.5rem;
+}
+
+.como-trabalhamos__container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    text-align: center;
+}
+
+.como-trabalhamos__grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.card-trabalho {
+    background-color: var(--color-yellow);
+    border-radius: 8px;
+    padding: 1.5rem 1.75rem;
+    text-align: left;
+}
+
+.card-trabalho__title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    padding-left: 0.75rem;
+    position: relative;
+    color: var(--color-white);
+}
+
+.card-trabalho__title::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    font-size: 1.2rem;
+}
+
+.card-trabalho__desc {
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: var(--color-white);
+    opacity: 0.9;
+}
+
+/* ===== Nossa Trajetória ===== */
+.trajetoria {
+    background-color: var(--color-teal);
+    padding: 2rem 1.5rem 4rem;
+}
+
+.trajetoria__container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    text-align: center;
+}
+
+.timeline {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    padding-left: 2rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background-color: var(--color-yellow);
+}
+
+.timeline__item {
+    position: relative;
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+}
+
+.timeline__dot {
+    position: absolute;
+    left: -2rem;
+    width: 16px;
+    height: 16px;
+    background-color: var(--color-yellow);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    margin-left: 1px;
+}
+
+.timeline__content {
+    background-color: var(--color-yellow);
+    border-radius: 8px;
+    padding: 0.875rem 1.25rem;
+    flex: 1;
+}
+
+.timeline__content p {
+    font-size: 0.875rem;
+    color: var(--color-white);
+    font-weight: 500;
+    text-align: left;
+}
+
+/* ===== Apoio ===== */
+.apoio {
+    background-color: var(--color-white);
+    padding: 4rem 1.5rem;
+}
+
+.apoio__container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    text-align: center;
+}
+
+.section-title--dark {
+    background-color: var(--color-green-dark);
+    color: var(--color-white);
+    border-color: var(--color-green-dark);
+}
+
+.apoio__grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.apoio__logo-item {
+    width: 120px;
+    flex-shrink: 0;
+}
+
+.apoio__logo-item img {
+    width: 120px;
+    height: 80px;
+    object-fit: contain;
+}
+
+/* ===== Nosso Espaço ===== */
+.espaco {
+    background-color: var(--color-white);
+    padding: 2rem 1.5rem 4rem;
+}
+
+.espaco__container {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.espaco__title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--color-black);
+}
+
+.espaco__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+}
+
+.espaco__item {
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 1;
+}
+
+.espaco__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 /* ===== Responsivo ===== */
 
 @media (max-width: 1024px) {
@@ -545,6 +778,22 @@ ul {
     .section-title {
         font-size: 1.2rem;
         padding: 0.5rem 1.5rem;
+    }
+
+    .sobre-hero img {
+        height: 280px;
+    }
+
+    .proposito__title {
+        font-size: 1.75rem;
+    }
+
+    .espaco__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .apoio__logo-item {
+        width: 90px;
     }
 }
 

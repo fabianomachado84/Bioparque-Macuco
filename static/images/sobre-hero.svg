@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="480" viewBox="0 0 1200 480">
+  <rect width="1200" height="480" fill="#8B7355"/>
+  <rect x="0" y="320" width="1200" height="160" fill="#9B8365"/>
+  <ellipse cx="350" cy="340" rx="80" ry="60" fill="#A08060"/>
+  <ellipse cx="750" cy="350" rx="70" ry="55" fill="#A08060"/>
+  <text x="600" y="450" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-family="Arial" font-size="16">Placeholder - substituir pela foto real</text>
+</svg>
