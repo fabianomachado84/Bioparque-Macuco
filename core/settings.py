@@ -136,4 +136,3 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-print(os.getenv('POSTGRES_DB'))
