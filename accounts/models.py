@@ -18,7 +18,7 @@ class Instructor(models.Model):
     specialty = models.CharField(max_length=100, help_text="Ex: Matemática,Programação, Python, etc...")
     
     def __str__(self):
-        return f"{self.employee.user.first_name} em {self.class_obj}"
+        return f"{self.employee.user.get_full_name()} ({self.specialty})"
 
     class Meta:
         verbose_name = "Instructor"
