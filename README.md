@@ -94,6 +94,8 @@ Copy-Item .env.example .env
 
 Then edit the `.env` file and change `POSTGRES_PASSWORD` to a password of your choice.
 
+> **Can't run Docker?** If your environment does not support Docker, you can use a local PostgreSQL installation instead. Uncomment `POSTGRES_HOST` and `POSTGRES_PORT` in your `.env` file and adjust the values to match your local instance. In this case, skip step 5.
+
 ### 5. Start the database
 
 With Docker installed, run:
@@ -103,6 +105,8 @@ docker compose up -d
 ```
 
 This will start a PostgreSQL container using the credentials defined in your `.env` file.
+
+> If you configured a local PostgreSQL instance in step 4, you can skip this step.
 
 ### 6. Run migrations
 
