@@ -1,13 +1,18 @@
 from django.contrib import admin
-from .models import Instructor
+from .models import Instructor, Employee
 
+@admin.register(Employee)
+class EmployeeAdmin(admin.ModelAdmin):
+    list_display = ['user', 'role', 'hire_date']
+    search_fields = ['user__username', 'user__first_name', 'role']
+    list_filter = ['role']
+    list_per_page = 10
 
 @admin.register(Instructor)
 class InstrutorAdmin(admin.ModelAdmin):
-    list_display = ['name', 'specialty', 'email', 'is_active']
-    list_filter = ['is_active', 'specialty']
-    search_fields = ['name', 'email', 'specialty']
-    list_editable = ['is_active']
+    list_display = ['employee', 'specialty', 'bio']
+    list_filter = ['specialty']
+    search_fields = ['specialty']
     list_per_page = 10
-    ordering = ['name']
+    ordering = ['employee__user__first_name']
 

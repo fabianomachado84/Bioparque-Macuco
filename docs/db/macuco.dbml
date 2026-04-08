@@ -21,7 +21,7 @@ Enum payment_method {
   cash
   donation_item
   hybrid
-  scollarship
+  scolarship
 }
 
 Enum course_status {
@@ -35,7 +35,10 @@ Enum donation_type {
   bird_food
 }
 
-// team method
+// ========================
+// Equipe e perfis internos
+// ========================
+
 Table User {
   id int [pk, increment]
   username varchar
@@ -47,23 +50,24 @@ Table User {
 
 Table Employee {
   id int [pk, increment]
-  user_id int [unique, ref: - User.id] 
+  user_id int [unique, ref: - User.id]
   role varchar
   hire_date date
 }
 
-// client table (no login)
-Table Student {
+Table Instructor {
   id int [pk, increment]
-  name varchar
-  email varchar [unique]
-  cpf varchar [unique, note: 'Útil para futura validação de certificado']
-  phone varchar
-  emergency_contact varchar
-  note: 'Visitante/Aluno de compra rápida. Não acessa o painel.'
+  employee_id int [ref: > Employee.id]
+  bio text [note: 'Breve currículo do instrutor']
+  specialty varchar [note: 'Ex: Mergulho, Canoagem, etc.']
+  
+  note: 'Perfil profissional do instrutor. Dados pessoais (nome, email) vêm de Employee → User.'
 }
 
-// class and courses tables
+// ========================
+// Cursos e turmas
+// ========================
+
 Table Course {
   id int [pk, increment]
   name varchar
@@ -84,14 +88,20 @@ Table Class {
   capacity int
 }
 
-Table instructor {
+// ========================
+// Alunos, matrículas e pagamentos
+// ========================
+
+Table Student {
   id int [pk, increment]
-  class_id int [ref: > Class.id]
-  employee_id int [ref: > Employee.id]
-  note: 'Relação N para N: Vários palestrantes por turma'
+  name varchar
+  email varchar [unique]
+  cpf varchar [unique, note: 'Útil para futura validação de certificado']
+  phone varchar
+  emergency_contact varchar
+  note: 'Visitante/Aluno de compra rápida. Não acessa o painel.'
 }
 
-// employee and payment tables
 Table Enrollment {
   id int [pk, increment]
   student_id int [ref: > Student.id]
