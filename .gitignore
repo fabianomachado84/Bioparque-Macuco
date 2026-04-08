@@ -1,5 +1,6 @@
 miniconda3/
 .env
+.env.example
 .env/
 env/
 venv/
