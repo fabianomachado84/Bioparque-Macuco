@@ -8,8 +8,9 @@
     <title>{% block title %}Bioparque Macuco{% endblock %}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/style.css' %}?v=2">
+    
     {% block extra_css %}{% endblock %}
 </head>
 <body>
@@ -17,7 +18,7 @@
     <header class="header">
         <div class="header__container">
             <a href="{% url 'home' %}" class="header__logo">
-                <img src="{% static 'images/logo.svg' %}" alt="Bioparque Macuco">
+                <img src="{% static 'images/logo.png' %}" alt="Bioparque Macuco">
             </a>
 
             <button class="header__menu-toggle" aria-label="Abrir menu" aria-expanded="false">
@@ -32,7 +33,7 @@
                     <li><a href="{% url 'sobre' %}" class="header__nav-link">Sobre nós</a></li>
                     <li><a href="#contato" class="header__nav-link">Contato</a></li>
                 </ul>
-                <a href="#participe" class="btn btn--primary header__cta">PARTICIPE AGORA</a>
+                <a href="{% url 'inscricao' %}" class="btn btn--primary header__cta">PARTICIPE AGORA</a>
             </nav>
         </div>
     </header>
@@ -43,6 +44,16 @@
 
     <footer class="footer" id="contato">
         <div class="footer__container">
+            <div class="footer__contact">
+                <h3 class="footer__contact-title">Contato</h3>
+                <ul class="footer__contact-list">
+                    <li><a href="#">@instagram</a></li>
+                    <li><a href="#">@facebook</a></li>
+                    <li><a href="#">e-mail contato</a></li>
+                    <li><a href="#">telefone</a></li>
+                </ul>
+            </div>
+
             <div class="footer__info">
                 <h2 class="footer__title">VISITE O BIOPARQUE MACUCO</h2>
                 <p class="footer__hours">
@@ -54,18 +65,8 @@
                 </p>
             </div>
 
-            <div class="footer__contact">
-                <h3 class="footer__contact-title">Contato</h3>
-                <ul class="footer__contact-list">
-                    <li><a href="https://www.instagram.com/bioparque_macuco/" target="_blank" rel="noopener noreferrer">@instagram</a></li>
-                    <li><a href="https://www.facebook.com/bioparquemacuco/?locale=pt_BR" target="_blank" rel="noopener noreferrer">@facebook</a></li>
-                    <li><a href="#">e-mail contato</a></li>
-                    <li><a href="#">telefone</a></li>
-                </ul>
-            </div>
-
             <div class="footer__logo">
-                <img src="{% static 'images/logo.svg' %}" alt="Bioparque Macuco">
+                <img src="{% static 'images/logo.png' %}" alt="Bioparque Macuco">
             </div>
         </div>
 

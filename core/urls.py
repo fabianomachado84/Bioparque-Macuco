@@ -26,5 +26,6 @@ admin.site.index_title = "MacucoAdmin"
 urlpatterns = [
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
     path('sobre/', TemplateView.as_view(template_name='sobre.html'), name='sobre'),
+    path('inscricao/', TemplateView.as_view(template_name='inscricao.html'), name='inscricao'),
     path('admin/', admin.site.urls),
 ]

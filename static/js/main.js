@@ -1,6 +1,14 @@
 document.addEventListener('DOMContentLoaded', function () {
     const menuToggle = document.querySelector('.header__menu-toggle');
+    const menuClose = document.querySelector('.header__menu-close');
     const nav = document.querySelector('.header__nav');
+
+    function closeMenu() {
+        nav.classList.remove('open');
+        menuToggle.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    }
 
     if (menuToggle && nav) {
         menuToggle.addEventListener('click', function () {
@@ -10,13 +18,12 @@ document.addEventListener('DOMContentLoaded', function () {
             document.body.style.overflow = isOpen ? 'hidden' : '';
         });
 
+        if (menuClose) {
+            menuClose.addEventListener('click', closeMenu);
+        }
+
         nav.querySelectorAll('a').forEach(function (link) {
-            link.addEventListener('click', function () {
-                nav.classList.remove('open');
-                menuToggle.classList.remove('active');
-                menuToggle.setAttribute('aria-expanded', 'false');
-                document.body.style.overflow = '';
-            });
+            link.addEventListener('click', closeMenu);
         });
     }
 

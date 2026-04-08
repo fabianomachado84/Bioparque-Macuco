@@ -1,0 +1,69 @@
+/* ===== Footer ===== */
+.footer {
+    background-color: var(--color-green-dark);
+    color: var(--color-white);
+    padding: 3rem 1.5rem 1rem;
+}
+
+.footer__container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 1.5rem;
+    align-items: start;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #666666;
+}
+
+.footer__title {
+    font-family: var(--font-title);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.footer__hours {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.footer__icon {
+    flex-shrink: 0;
+}
+
+.footer__contact-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.footer__contact-list li {
+    margin-bottom: 0.25rem;
+    font-size: 0.9rem;
+}
+
+.footer__contact-list a {
+    color: var(--color-white);
+    opacity: 0.85;
+    transition: opacity 0.2s;
+}
+
+.footer__contact-list a:hover {
+    opacity: 1;
+}
+
+.footer__logo img {
+    height: 120px;
+    width: auto;
+}
+
+.footer__bottom {
+    max-width: var(--max-width);
+    margin: 1.5rem auto 0;
+    font-size: 0.75rem;
+    opacity: 0.7;
+}

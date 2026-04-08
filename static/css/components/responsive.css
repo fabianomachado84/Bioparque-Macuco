@@ -1,0 +1,435 @@
+/* ===== Responsivo ===== */
+
+@media (max-width: 1024px) {
+    .cursos__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cronograma__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero__subtitle,
+    .proposito__subtitle {
+        font-size: 1.125rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Header - Responsivo */
+    .header__menu-toggle {
+        display: flex;
+    }
+
+    .header__container {
+        justify-content: space-between;
+    }
+
+    .header__nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--color-green-dark);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 5rem 2rem 2rem;
+        gap: 1.5rem;
+        transition: right 0.3s ease;
+        box-shadow: -4px 0 12px rgba(0, 0, 0, 0.2);
+        display: flex;
+    }
+
+    .header__nav.open {
+        right: 0;
+    }
+
+    .header__nav-list {
+        flex-direction: column;
+        gap: 1.25rem;
+    }
+
+    .header__nav-link {
+        font-size: 1.125rem;
+    }
+
+    /* Hero - Responsivo */
+    .hero {
+        padding: 2rem 1rem 0;
+    }
+
+    .hero__content {
+        margin: 0 auto 1.5rem;
+    }
+
+    .hero__title {
+        font-size: 1.875rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .hero__subtitle {
+        font-size: 1rem;
+        max-width: 100%;
+    }
+
+    .hero__image img {
+        height: 280px;
+    }
+
+    /* Grids - Responsivo */
+    .cursos__grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .dicas__grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .cronograma__grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    /* Section Title - Responsivo */
+    .section-title {
+        font-size: 1.25rem;
+        padding: 0.5rem 2rem;
+        margin: 0 auto 2rem;
+    }
+
+    /* Cursos - Responsivo */
+    .card-curso__title {
+        font-size: 1.5rem;
+    }
+
+    .card-curso__desc {
+        font-size: 0.9375rem;
+    }
+
+    /* Dicas - Responsivo */
+    .card-dica {
+        padding: 1rem;
+    }
+
+    .card-dica__title {
+        font-size: 1.25rem;
+    }
+
+    .card-dica__desc {
+        font-size: 0.9375rem;
+    }
+
+    .dicas__action {
+        margin: 1.5rem 0;
+    }
+
+    /* Cronograma - Responsivo */
+    .card-crono__date {
+        font-size: 1.25rem;
+    }
+
+    .card-crono__desc {
+        font-size: 0.9375rem;
+    }
+
+    /* Footer - Responsivo */
+    .footer__container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        text-align: left;
+    }
+
+    .footer__logo {
+        justify-self: start;
+        order: 3;
+    }
+
+    .footer__logo img {
+        height: 80px;
+    }
+
+    .footer__contact-list a {
+        font-size: 0.875rem;
+    }
+
+    /* Sobre - Responsivo */
+    .sobre-hero img {
+        height: 300px;
+    }
+
+    .proposito {
+        padding: 2.5rem 1.5rem;
+    }
+
+    .proposito__title {
+        font-size: 1.875rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .proposito__subtitle {
+        font-size: 1rem;
+    }
+
+    .proposito__text {
+        font-size: 0.9375rem;
+    }
+
+    .como-trabalhamos {
+        padding: 2.5rem 1.5rem;
+    }
+
+    .card-trabalho {
+        padding: 1.25rem;
+    }
+
+    .card-trabalho__title {
+        font-size: 0.9375rem;
+    }
+
+    .card-trabalho__desc {
+        font-size: 0.8125rem;
+    }
+
+    /* Timeline - Responsivo */
+    .trajetoria {
+        padding: 2.5rem 1.5rem;
+    }
+
+    .timeline {
+        padding-left: 1.5rem;
+    }
+
+    .timeline::before {
+        left: 0.25rem;
+        width: 0.1875rem;
+    }
+
+    .timeline__dot {
+        left: -1.75rem;
+        width: 0.875rem;
+        height: 0.875rem;
+    }
+
+    .timeline__content {
+        padding: 1rem 0.75rem;
+    }
+
+    .timeline__content p {
+        font-size: 0.9375rem;
+    }
+
+    /* Espaço - Responsivo */
+    .espaco {
+        padding: 2.5rem 1.5rem;
+    }
+
+    .espaco__title {
+        font-size: 1.75rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .espaco__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.375rem;
+    }
+
+    /* Apoio - Responsivo */
+    .apoio {
+        padding: 2.5rem 1.5rem;
+    }
+
+    .apoio__grid {
+        gap: 1.25rem;
+    }
+
+    .apoio__logo-item {
+        width: 100px;
+    }
+
+    .apoio__logo-item img {
+        width: 100px;
+        height: 70px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Header - Extra Small */
+    .header {
+        height: 3.5rem;
+    }
+
+    .header__logo img {
+        height: 48px;
+    }
+
+    .header__nav {
+        width: 100%;
+        padding: 4rem 1.5rem 1.5rem;
+    }
+
+    .header__nav-list {
+        gap: 1rem;
+    }
+
+    .header__nav-link {
+        font-size: 1rem;
+    }
+
+    .header__cta {
+        padding: 0.5rem 1rem;
+        font-size: 0.75rem;
+    }
+
+    /* Hero - Extra Small */
+    .hero {
+        padding: 1.5rem 1rem 0;
+    }
+
+    .hero__title {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .hero__subtitle {
+        font-size: 0.9375rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero__image img {
+        height: 200px;
+    }
+
+    /* Buttons - Extra Small */
+    .btn {
+        padding: 0.5rem 1.25rem;
+        font-size: 0.75rem;
+    }
+
+    /* Section Title - Extra Small */
+    .section-title {
+        font-size: 1rem;
+        padding: 0.4rem 1.5rem;
+        margin: 0 auto 1.5rem;
+    }
+
+    /* Cursos - Extra Small */
+    .cursos {
+        padding: 2rem 1rem;
+    }
+
+    .card-curso__title {
+        font-size: 1.25rem;
+    }
+
+    .card-curso__body {
+        padding: 1rem;
+    }
+
+    /* Dicas - Extra Small */
+    .dicas {
+        padding: 2rem 1rem;
+    }
+
+    .card-dica {
+        padding: 0.875rem;
+    }
+
+    .card-dica__title {
+        font-size: 1rem;
+    }
+
+    /* Cronograma - Extra Small */
+    .cronograma {
+        padding: 2rem 1rem;
+    }
+
+    .card-crono {
+        padding: 1rem;
+    }
+
+    .card-crono__date {
+        font-size: 1rem;
+    }
+
+    /* Footer - Extra Small */
+    .footer {
+        padding: 2rem 1rem 1rem;
+    }
+
+    .footer__container {
+        gap: 1rem;
+    }
+
+    .footer__title {
+        font-size: 1.25rem;
+    }
+
+    .footer__logo img {
+        height: 60px;
+    }
+
+    /* Sobre - Extra Small */
+    .proposito {
+        padding: 1.5rem 1rem;
+    }
+
+    .proposito__title {
+        font-size: 1.5rem;
+    }
+
+    .proposito__text {
+        font-size: 0.875rem;
+    }
+
+    .como-trabalhamos {
+        padding: 1.5rem 1rem;
+    }
+
+    .card-trabalho {
+        padding: 1rem;
+    }
+
+    .trajetoria {
+        padding: 1.5rem 1rem;
+    }
+
+    .timeline {
+        padding-left: 1.25rem;
+    }
+
+    .timeline__dot {
+        left: -1.5rem;
+        width: 0.75rem;
+        height: 0.75rem;
+    }
+
+    .espaco {
+        padding: 1.5rem 1rem;
+    }
+
+    .espaco__title {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .espaco__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.25rem;
+    }
+
+    .apoio {
+        padding: 1.5rem 1rem;
+    }
+
+    .apoio__logo-item {
+        width: 80px;
+    }
+
+    .apoio__logo-item img {
+        width: 80px;
+        height: 60px;
+    }
+}

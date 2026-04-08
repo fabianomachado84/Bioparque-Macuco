@@ -1,0 +1,21 @@
+/* ===== Variables ===== */
+:root {
+    font-size: 16px;
+    font-weight: 400;
+
+    --color-green-dark: #3D4B32;
+    --color-olive: #93A42A;
+    --color-teal: #309292;
+    --color-teal-light: #2FB8AC;
+    --color-teal-darker: #046D8B;
+    --color-yellow: #ECBE13;
+    --color-white: #FFFFFF;
+    --color-black: #1a1a1a;
+    --color-gray: #333333;
+
+    --font-title: 'Sansation', sans-serif;
+    --font-body: 'Arial', sans-serif;
+    --font-subtitle: 'Arial Narrow', sans-serif;
+    --max-width: 1200px;
+    --header-height: 64px;
+}

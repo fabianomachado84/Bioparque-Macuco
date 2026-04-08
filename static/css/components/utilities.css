@@ -1,0 +1,55 @@
+/* ===== Utilities ===== */
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: var(--font-title);
+    text-align: center;
+    padding: 0.5rem 3rem;
+    border: none;
+    border-radius: 16px;
+    display: inline-block;
+    margin: 0 auto 3rem;
+    background: var(--color-white);
+}
+
+.section-title--green-text {
+    color: var(--color-green-dark);
+    background: var(--color-white);
+}
+
+.section-title--dark {
+    background: var(--color-green-dark);
+    color: var(--color-white);
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.2s;
+    letter-spacing: 0.5px;    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);}
+
+.btn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.btn--primary {
+    background-color: var(--color-olive);
+    color: var(--color-white);
+}
+
+.btn--olive {
+    background-color: var(--color-olive);
+    color: var(--color-white);
+}
+
+.btn--dark {
+    background-color: var(--color-green-dark);
+    color: var(--color-white);
+}

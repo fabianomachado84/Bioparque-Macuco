@@ -1,0 +1,55 @@
+/* ===== Dicas ===== */
+.dicas {
+    background-color: var(--color-white);
+    padding: 4rem 1.5rem;
+}
+
+.dicas__container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    text-align: center;
+}
+
+.dicas__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.card-dica {
+    background-color: var(--color-yellow);
+    border-radius: 0.25rem;
+    padding: 1.25rem 1rem;
+    text-align: left;
+    color: var(--color-green-dark);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-dica__title {
+    font-size: 1.75rem;
+    font-weight: 500;
+    font-family: var(--font-title);
+    margin-bottom: 0.5rem;
+    padding-left: 0.75rem;
+    position: relative;
+}
+
+.card-dica__title::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+}
+
+.card-dica__desc {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--color-white);
+}
+
+.dicas__action {
+    text-align: center;
+    margin: 2rem 0;
+}
