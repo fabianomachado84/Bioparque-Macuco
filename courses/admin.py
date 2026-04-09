@@ -18,5 +18,4 @@ class LessonAdmin(admin.ModelAdmin):
     search_fields = ['course__name', 'instructor__employee__user__first_name']
     list_per_page = 10
     ordering = ['course', 'start_date']
-    fields = ['course', 'start_date', 'start_time', 'end_time', 'capacity', 'instructor', 'created_at', 'updated_at']
 
