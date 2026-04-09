@@ -2,14 +2,14 @@ from django.contrib import admin
 from .models import Student, Enrollment,Payment
 
 
-#@admin.register(Student)
+@admin.register(Student)
 class StudentAdmin(admin.ModelAdmin):
     list_display = ('name', 'cpf', 'email')
 
 
-#@admin.register(Enrollment)
+@admin.register(Enrollment)
 class EnrollmentAdmin(admin.ModelAdmin):
-    list_display = ('student', 'class_obj', 'status', 'is_overbooked')
+    list_display = ('student', 'lesson', 'status', 'is_overbooked')
     list_filter = ('status', 'is_overbooked')
 
 

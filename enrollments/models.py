@@ -2,9 +2,6 @@ from django.db import models
 from django.db.models import UniqueConstraint, Q
 from django.core.exceptions import ValidationError
 
-import courses
-from courses.models import Lesson
-
 
 
 # Student
@@ -15,28 +12,26 @@ class Student(models.Model):
     phone = models.CharField(max_length=20)
     emergency_contact = models.CharField(max_length=20)
 
-
     def __str__(self) -> str:
         return str(self.name) 
-
 
 # Enrollment 
 class Enrollment(models.Model):
     STATUS_CHOICES = [('pending','Pending'), ('approved','Approved'), ('rejected','Rejected')]
 
-    student = models.ForeignKey(Student, on_delete=models.PROTECT, related_name='enrolments')
-    class_obj = models.ForeignKey('courses.Lesson', on_delete=models.PROTECT, related_name='enrolments')
+    student = models.ForeignKey(Student, on_delete=models.PROTECT, related_name='enrollments')
+    lesson = models.ForeignKey('courses.Lesson', on_delete=models.PROTECT, related_name='enrollments')
     enrollment_date = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='pending')
     is_overbooked = models.BooleanField(default=False)
 
     class Meta:
-        constraints = [UniqueConstraint( fields=['student', 'class_obj'], condition=~Q(status='rejected'), name='unique_active_enrolment' )]
+        constraints = [UniqueConstraint( fields=['student', 'lesson'], condition=~Q(status='rejected'), name='unique_active_enrolment' )]
 
     def clean(self):
         if not self.pk:
-            count_atual = self.class_obj.enrolments.count()
-            if count_atual >= self.class_obj.capacity:
+            count_atual = self.lesson.enrollments.count()
+            if count_atual >= self.lesson.capacity:
                 if not self.is_overbooked:
                     raise ValidationError("Turma lotada. Inscrição online não permitida.")
 
@@ -45,7 +40,7 @@ class Enrollment(models.Model):
             super().save(*args, **kwargs)
 
     def __str__(self) -> str:
-        return f"{self.student} - {self.class_obj}"
+        return f"{self.student} - {self.lesson}"
 
 # Payment
 class Payment(models.Model):
@@ -56,7 +51,7 @@ class Payment(models.Model):
     STATUS_CHOICES = [('pending', 'Pending'), ('confirmed', 'Confirmed')]
     ORIGIN_CHOICES = [('online', 'Online'), ('in_person', 'In Person')]
 
-    enrollment = models.ForeignKey(Enrollment, on_delete=models.CASCADE, related_name='payments')
+    enrollment = models.ForeignKey(Enrollment, on_delete=models.PROTECT, related_name='payments')
     payment_date = models.DateTimeField(auto_now_add=True)
     payment_method = models.CharField(max_length=20, choices=METHOD_CHOICES)
     payment_origin = models.CharField(max_length=10, choices=ORIGIN_CHOICES, default='online')
