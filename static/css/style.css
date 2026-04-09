@@ -1,0 +1,27 @@
+@import url('components/fonts.css');
+@import url('components/variables.css');
+@import url('components/reset.css');
+@import url('components/utilities.css');
+@import url('components/header.css');
+@import url('components/hero.css');
+@import url('components/courses.css');
+@import url('components/tips.css');
+@import url('components/schedule.css');
+@import url('components/footer.css');
+@import url('components/about.css');
+@import url('components/responsive.css');
+
+@media (max-width: 480px) {
+    .hero__title {
+        font-size: 1.5rem;
+    }
+
+    .hero__actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero__image img {
+        height: 200px;
+    }
+}

@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Sobre Nós - Bioparque Macuco{% endblock %}
+
+{% block content %}
+
+<!-- Hero Image -->
+<section class="about-hero">
+    <img src="{% static 'images/sobre-hero.svg' %}" alt="Animais do Bioparque Macuco">
+</section>
+
+<!-- Nosso Propósito -->
+<section class="proposito">
+    <div class="proposito__container">
+        <h2 class="proposito__title">Nosso propósito</h2>
+        <p class="proposito__subtitle">Foque na conservação da biodiversidade e no bem-estar animal.</p>
+        <p class="proposito__text">
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Donec elementum ligula eu varius dapibus.
+        </p>
+        <p class="proposito__text">
+            Donec elementum ligula eu varius dapibus. Mauris varius, nibh a feugiat tincidunt,
+            magna nisi interdum ante, a feugiat diam nisl non sem.
+        </p>
+    </div>
+</section>
+
+<!-- Como Trabalhamos -->
+<section class="como-trabalhamos">
+    <div class="como-trabalhamos__container">
+        <h2 class="section-title section-title--green-text">COMO TRABALHAMOS</h2>
+
+        <div class="como-trabalhamos__grid">
+            <div class="card-trabalho">
+                <h3 class="card-trabalho__title">Foque na conservação da biodiversidade e no bem-estar animal</h3>
+                <p class="card-trabalho__desc">
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                </p>
+            </div>
+            <div class="card-trabalho">
+                <h3 class="card-trabalho__title">Foque na conservação da biodiversidade e no bem-estar animal.</h3>
+                <p class="card-trabalho__desc">
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                </p>
+            </div>
+            <div class="card-trabalho">
+                <h3 class="card-trabalho__title">Foque na conservação da biodiversidade e no bem-estar animal.</h3>
+                <p class="card-trabalho__desc">
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Nossa Trajetória -->
+<section class="trajetoria">
+    <div class="trajetoria__container">
+        <h2 class="section-title section-title--green-text">NOSSA TRAJETÓRIA</h2>
+
+        <div class="timeline">
+            <div class="timeline__item">
+                <div class="timeline__dot"></div>
+                <div class="timeline__content">
+                    <p>2000 - tal coisa aconteceu e tal coisa foi criada por fulano e outras pessoas.</p>
+                </div>
+            </div>
+            <div class="timeline__item">
+                <div class="timeline__dot"></div>
+                <div class="timeline__content">
+                    <p>2000 - tal coisa aconteceu e tal coisa foi criada por fulano e outras pessoas.</p>
+                </div>
+            </div>
+            <div class="timeline__item">
+                <div class="timeline__dot"></div>
+                <div class="timeline__content">
+                    <p>2000 - tal coisa aconteceu e tal coisa foi criada por fulano e outras pessoas.</p>
+                </div>
+            </div>
+            <div class="timeline__item">
+                <div class="timeline__dot"></div>
+                <div class="timeline__content">
+                    <p>2000 - tal coisa aconteceu e tal coisa foi criada por fulano e outras pessoas.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Apoio -->
+<section class="apoio">
+    <div class="apoio__container">
+        <h2 class="section-title section-title--dark">APOIO</h2>
+
+        <div class="apoio__grid">
+            <div class="apoio__logo-item">
+                <img src="{% static 'images/apoio-placeholder.svg' %}" alt="Apoiador">
+            </div>
+            <div class="apoio__logo-item">
+                <img src="{% static 'images/apoio-placeholder.svg' %}" alt="Apoiador">
+            </div>
+            <div class="apoio__logo-item">
+                <img src="{% static 'images/apoio-placeholder.svg' %}" alt="Apoiador">
+            </div>
+            <div class="apoio__logo-item">
+                <img src="{% static 'images/apoio-placeholder.svg' %}" alt="Apoiador">
+            </div>
+            <div class="apoio__logo-item">
+                <img src="{% static 'images/apoio-placeholder.svg' %}" alt="Apoiador">
+            </div>
+            <div class="apoio__logo-item">
+                <img src="{% static 'images/apoio-placeholder.svg' %}" alt="Apoiador">
+            </div>
+            <div class="apoio__logo-item">
+                <img src="{% static 'images/apoio-placeholder.svg' %}" alt="Apoiador">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Nosso Espaço -->
+<section class="espaco">
+    <div class="espaco__container">
+        <h2 class="espaco__title">Nosso espaço</h2>
+
+        <div class="espaco__grid">
+            <div class="espaco__item">
+                <img src="{% static 'images/espaco-placeholder.svg' %}" alt="Nosso espaço">
+            </div>
+            <div class="espaco__item">
+                <img src="{% static 'images/espaco-placeholder.svg' %}" alt="Nosso espaço">
+            </div>
+            <div class="espaco__item">
+                <img src="{% static 'images/espaco-placeholder.svg' %}" alt="Nosso espaço">
+            </div>
+            <div class="espaco__item">
+                <img src="{% static 'images/espaco-placeholder.svg' %}" alt="Nosso espaço">
+            </div>
+            <div class="espaco__item">
+                <img src="{% static 'images/espaco-placeholder.svg' %}" alt="Nosso espaço">
+            </div>
+            <div class="espaco__item">
+                <img src="{% static 'images/espaco-placeholder.svg' %}" alt="Nosso espaço">
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
