@@ -20,26 +20,21 @@ Install the [DBML Live Preview](https://marketplace.visualstudio.com/items?itemN
 |---|---|
 | **User** | Django's native `auth_user` table. Exclusive to staff members. |
 | **Employee** | Extends User with role and hire date (1:1 relationship). |
-
-### Students (no login)
-
-| Table | Description |
-|---|---|
-| **Student** | Visitors/quick-purchase students. No panel access. Identified by CPF and email. |
+| **Instructor** | Professional profile for instructors. Personal data (name, email) come from Employee → User. |
 
 ### Courses
 
 | Table | Description |
 |---|---|
 | **Course** | Available courses with name, description, duration, price and status. |
-| **Class** | Specific class sessions for a course, with date, time and capacity. |
-| **Instructor** | N:N relationship between classes and employees (multiple instructors per class). |
+| **Lesson** | Specific lesson sessions for a course, with date, time, capacity and assigned instructor. |
 
-### Enrollment & Payments
+### Students, Enrollments & Payments
 
 | Table | Description |
 |---|---|
-| **Enrollment** | Links a student to a class session, with status tracking (pending/approved/rejected). |
+| **Student** | Visitors/quick-purchase students. No panel access. Identified by CPF and email. |
+| **Enrollment** | Links a student to a lesson, with status tracking (pending/approved/rejected). |
 | **Payment** | Payment details for an enrollment. Supports multiple methods including donations (kg). |
 
 ## Enums
@@ -48,6 +43,7 @@ Install the [DBML Live Preview](https://marketplace.visualstudio.com/items?itemN
 |---|---|
 | `enrollment_status` | pending, approved, rejected |
 | `payment_status` | pending, confirmed |
+| `payment_origin` | online, in_person |
 | `payment_method` | credit_card, pix, cash, donation_item, hybrid, scholarship |
 | `course_status` | active, inactive |
 | `donation_type` | dog_food, cat_food, bird_food |

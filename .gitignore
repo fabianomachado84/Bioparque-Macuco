@@ -4,6 +4,7 @@ miniconda3/
 env/
 venv/
 macuco_env/
+models_temp.py
 # Python Cache
 __pycache__/
 *.py[cod]
