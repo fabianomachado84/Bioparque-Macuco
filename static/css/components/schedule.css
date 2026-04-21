@@ -17,24 +17,25 @@
 }
 
 .card-crono {
-    background-color: var(--color-yellow);
-    border-radius: 8px;
+    background-color: var(--color-white);
+    border-radius: 1rem;
     padding: 1.25rem 1rem;
     text-align: left;
-    color: var(--color-green-dark);
+    color: var(--color-black);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .card-crono__date {
     font-size: 1.25rem;
     font-weight: 600;
+    text-align: center;
     margin-bottom: 0.5rem;
 }
 
 .card-crono__desc {
     font-size: 1rem;
     line-height: 1.5;
-    color: var(--color-white);
+    color: var(--color-black);
     margin-bottom: 0.5rem;
 }
 

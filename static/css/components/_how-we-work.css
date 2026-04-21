@@ -1,41 +1,42 @@
-/* ===== Dicas ===== */
-.dicas {
-    background-color: var(--color-white);
+/* ===== Como Trabalhamos ===== */
+.como-trabalhamos {
+    background-color: var(--color-teal);
     padding: 4rem 1.5rem;
 }
 
-.dicas__container {
+.como-trabalhamos__container {
     max-width: var(--max-width);
     margin: 0 auto;
     text-align: center;
 }
 
-.dicas__grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+.como-trabalhamos__grid {
+    display: flex;
+    flex-direction: column;
     gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
-.card-dica {
+.card-trabalho {
     background-color: var(--color-white);
-    border: 0.10rem solid var(--color-green-dark);
     border-radius: 1rem;
     padding: 1.25rem 1rem;
     text-align: left;
     color: var(--color-black);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.card-dica__title {
-    font-size: 1.75rem;
+.card-trabalho__title {
+    font-size: 1.25rem;
     font-weight: 500;
     font-family: var(--font-title);
     margin-bottom: 0.5rem;
     padding-left: 0.75rem;
     position: relative;
+    color: var(--color-black);
 }
 
-.card-dica__title::before {
+.card-trabalho__title::before {
     content: '•';
     position: absolute;
     left: 0;
@@ -44,13 +45,9 @@
     font-size: 1.5rem;
 }
 
-.card-dica__desc {
+.card-trabalho__desc {
     font-size: 1rem;
     line-height: 1.5;
     color: var(--color-black);
 }
 
-.dicas__action {
-    text-align: center;
-    margin: 2rem 0;
-}
