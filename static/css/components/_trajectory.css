@@ -1,0 +1,63 @@
+/* ===== Nossa Trajetória ===== */
+.trajetoria {
+    background-color: var(--color-teal);
+    padding: 4rem 1.5rem;
+}
+
+.trajetoria__container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+.timeline {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    padding-left: 2rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.5rem;
+    top: 0;
+    bottom: 0;
+    width: 0.25rem;
+    background-color: var(--color-yellow);
+}
+
+.timeline__item {
+    position: relative;
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+}
+
+.timeline__dot {
+    position: absolute;
+    left: -2rem;
+    width: 1rem;
+    height: 1rem;
+    background-color: var(--color-yellow);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    margin-left: 1px;
+}
+
+.timeline__content {
+    background-color: var(--color-yellow);
+    border-radius: 0.25rem;
+    padding: 1.25rem 1rem;
+    flex: 1;
+}
+
+.timeline__content p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--color-white);
+    text-align: left;
+}

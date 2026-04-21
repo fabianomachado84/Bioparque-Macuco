@@ -1,0 +1,52 @@
+/* ===== Como Trabalhamos ===== */
+.como-trabalhamos {
+    background-color: var(--color-teal);
+    padding: 4rem 1.5rem;
+}
+
+.como-trabalhamos__container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    text-align: center;
+}
+
+.como-trabalhamos__grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.card-trabalho {
+    background-color: var(--color-yellow);
+    border-radius: 0.25rem;
+    padding: 1.25rem 1rem;
+    text-align: left;
+}
+
+.card-trabalho__title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    font-family: var(--font-title);
+    margin-bottom: 0.5rem;
+    padding-left: 0.75rem;
+    position: relative;
+    color: var(--color-white);
+}
+
+.card-trabalho__title::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+}
+
+.card-trabalho__desc {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--color-white);
+}
+
