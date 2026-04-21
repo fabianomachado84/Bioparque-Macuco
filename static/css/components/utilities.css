@@ -35,7 +35,8 @@
     letter-spacing: 0.5px;    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);}
 
 .btn:hover {
-    opacity: 0.9;
+    background-color: var(--color-yellow);
+    color: var(--color-green-dark);
     transform: translateY(-1px);
 }
 

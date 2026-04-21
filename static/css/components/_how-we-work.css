@@ -19,10 +19,11 @@
 }
 
 .card-trabalho {
-    background-color: var(--color-yellow);
-    border-radius: 0.25rem;
+    background-color: var(--color-white);
+    border-radius: 1rem;
     padding: 1.25rem 1rem;
     text-align: left;
+    color: var(--color-black);
 }
 
 .card-trabalho__title {
@@ -32,7 +33,7 @@
     margin-bottom: 0.5rem;
     padding-left: 0.75rem;
     position: relative;
-    color: var(--color-white);
+    color: var(--color-black);
 }
 
 .card-trabalho__title::before {
@@ -47,6 +48,6 @@
 .card-trabalho__desc {
     font-size: 1rem;
     line-height: 1.5;
-    color: var(--color-white);
+    color: var(--color-black);
 }
 

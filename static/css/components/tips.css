@@ -17,11 +17,12 @@
 }
 
 .card-dica {
-    background-color: var(--color-yellow);
-    border-radius: 0.25rem;
+    background-color: var(--color-white);
+    border: 0.10rem solid var(--color-green-dark);
+    border-radius: 1rem;
     padding: 1.25rem 1rem;
     text-align: left;
-    color: var(--color-green-dark);
+    color: var(--color-black);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -46,7 +47,7 @@
 .card-dica__desc {
     font-size: 1rem;
     line-height: 1.5;
-    color: var(--color-white);
+    color: var(--color-black);
 }
 
 .dicas__action {
