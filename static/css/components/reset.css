@@ -4,20 +4,31 @@
 *::after {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: inherit;
 }
 
 html {
     scroll-behavior: smooth;
+    box-sizing: border-box;
 }
 
 body {
+    margin: 0;
+    padding: 0;
     font-family: var(--font-body);
-    color: var(--color-color);
+    color: var(--color-white);
     font-size: 16px;
     font-weight: 400;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
 }
 
 img {

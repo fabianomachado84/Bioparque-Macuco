@@ -1,38 +1,378 @@
-#jazzy-sidebar {
-    background-color: #ffc107 !important;
+/*
+ * Django Admin — Portal Macuco
+ * Usa `variables.css` do projeto e sobrescreve as variáveis nativas do admin.
+ */
+
+html[data-theme="light"],
+:root {
+    color-scheme: only light;
+
+    --admin-radius: 16px;
+    --admin-radius-sm: 12px;
+    --admin-border-subtle: rgba(61, 75, 50, 0.14);
+    --admin-surface-muted: rgba(147, 164, 42, 0.08);
+
+    /* Paleta Django Admin → identidade Macuco */
+    --primary: var(--color-olive);
+    --secondary: var(--color-green-dark);
+    --accent: var(--color-yellow);
+    --primary-fg: var(--color-white);
+
+    --body-fg: var(--color-black);
+    --body-bg: var(--color-white);
+    --body-quiet-color: var(--color-gray);
+    --body-medium-color: #444444;
+    --body-loud-color: var(--color-black);
+
+    --header-bg: var(--color-green-dark);
+    --header-color: var(--color-white);
+    --header-branding-color: var(--color-white);
+    --header-link-color: rgba(255, 255, 255, 0.92);
+
+    --breadcrumbs-fg: var(--color-black);
+    --breadcrumbs-link-fg: var(--color-green-dark);
+    --breadcrumbs-bg: rgba(147, 164, 42, 0.1);
+
+    --link-fg: var(--color-green-dark);
+    --link-hover-color: var(--color-olive);
+    --link-selected-fg: var(--color-olive);
+
+    --hairline-color: var(--admin-border-subtle);
+    --border-color: rgba(61, 75, 50, 0.22);
+
+    --error-fg: #ba2121;
+
+    --message-debug-bg: #efefef;
+    --message-info-bg: rgba(48, 146, 146, 0.18);
+    --message-success-bg: rgba(147, 164, 42, 0.2);
+    --message-warning-bg: rgba(236, 190, 19, 0.28);
+    --message-error-bg: #ffefef;
+
+    --darkened-bg: rgba(61, 75, 50, 0.05);
+    --selected-bg: rgba(147, 164, 42, 0.12);
+    --selected-row: rgba(236, 190, 19, 0.22);
+
+    --button-fg: var(--color-white);
+    --button-bg: var(--color-olive);
+    --button-hover-bg: var(--color-yellow);
+    --default-button-bg: var(--color-green-dark);
+    --default-button-hover-bg: #4a5c3d;
+
+    --close-button-bg: #6b6b6b;
+    --close-button-hover-bg: #4a4a4a;
+    --delete-button-bg: var(--error-fg);
+    --delete-button-hover-bg: #a41515;
+
+    --object-tools-fg: var(--color-white);
+    --object-tools-bg: var(--color-olive);
+    --object-tools-hover-bg: var(--color-yellow);
+
+    --font-family-primary: var(--font-body), system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
-#jazzy-sidebar[data-bs-theme="dark"] {
-    background-color: #ffc107 !important;
-    --bs-body-bg: #ffc107 !important;
-    --bs-secondary-bg: #ffc107 !important;
-    --bs-tertiary-bg: #ffc107 !important;
-    --bs-body-color: #212529 !important;
+body {
+    font-family: var(--font-body), system-ui, sans-serif;
 }
 
-#jazzy-sidebar .nav-link,
-#jazzy-sidebar .nav-header,
-#jazzy-sidebar .brand-text,
-#jazzy-sidebar .info a,
-#jazzy-sidebar .sidebar-menu .nav-link p,
-#jazzy-sidebar .user-panel .info a {
-    color: #212529 !important;
+/* Tipografia dos títulos alinhada ao site (Roboto em cabeçalhos) */
+#site-name,
+.module h2,
+.module caption,
+.inline-group h2,
+.dashboard .module caption,
+fieldset h2 {
+    font-family: var(--font-title), system-ui, sans-serif;
 }
 
-#jazzy-sidebar .nav-link:hover {
-    background-color: rgba(0, 0, 0, 0.1) !important;
+#site-name {
+    font-weight: 700;
+    letter-spacing: 0.02em;
 }
 
-#jazzy-sidebar .nav-link.active {
-    background-color: rgba(0, 0, 0, 0.15) !important;
+/* Cabeçalho */
+#header {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
 }
 
-#jazzy-sidebar .sidebar-brand,
-#jazzy-sidebar .brand-link {
-    background-color: #e5ac06 !important;
-    color: #212529 !important;
+/*
+ * Páginas que ainda incluem o toggle (ex.: templates Django antigos):
+ * sem dark_mode.css os 3 SVG aparecem ao mesmo tempo.
+ */
+.theme-toggle {
+    display: none !important;
 }
 
-#jazzy-sidebar .nav-icon {
-    color: #212529 !important;
+#header a:link,
+#header a:visited,
+#logout-form button {
+    color: var(--header-link-color);
+}
+
+#header a:hover,
+#header a:focus,
+#logout-form button:hover {
+    color: var(--color-white);
+    opacity: 1;
+}
+
+/* Título do portal no header — texto branco */
+#site-name a:link,
+#site-name a:visited {
+    color: var(--color-white);
+}
+
+#site-name a:hover,
+#site-name a:focus {
+    color: var(--color-white);
+    opacity: 0.88;
+}
+
+/*
+ * Título de cada aplicação (caption > a.section): o admin usa cor de link do
+ * header (branco); em fundo claro fica ilegível.
+ */
+#content-main.app-list .module caption a.section:link,
+#content-main.app-list .module caption a.section:visited,
+#nav-sidebar .module caption a.section:link,
+#nav-sidebar .module caption a.section:visited {
+    color: var(--color-green-dark);
+}
+
+#content-main.app-list .module caption a.section:hover,
+#content-main.app-list .module caption a.section:focus,
+#nav-sidebar .module caption a.section:hover,
+#nav-sidebar .module caption a.section:focus {
+    color: var(--color-olive);
+}
+
+/*
+ * Hover secundário (olive → amarelo): texto verde como em .btn do site.
+ * Restrito a #content / toolbar para não alterar o botão do header (#logout-form).
+ */
+#content .button:hover:not(.default),
+#content input[type="submit"]:hover:not(.default),
+#content input[type="button"]:hover:not(.default),
+#content a.button:hover:not(.default),
+#toolbar input[type="submit"]:hover:not(.default),
+#toolbar button:hover:not(.default) {
+    color: var(--color-green-dark);
+}
+
+#content .button.default:hover,
+#content input[type="submit"].default:hover,
+#content .submit-row input.default:hover {
+    color: var(--color-white);
+    background: var(--default-button-hover-bg);
+}
+
+a.button {
+    border-radius: var(--admin-radius);
+    padding: 0.5rem 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.03em;
+}
+
+#content .button,
+#content input[type="submit"],
+#content input[type="button"],
+#content .submit-row input,
+#content a.button {
+    border-radius: var(--admin-radius);
+    font-weight: 700;
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    transition: background 0.15s ease, color 0.15s ease, transform 0.12s ease;
+}
+
+#content .button:hover,
+#content input[type="submit"]:hover,
+#content input[type="button"]:hover,
+#content a.button:hover {
+    transform: translateY(-1px);
+}
+
+.object-tools a {
+    border-radius: var(--admin-radius);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.object-tools a:hover {
+    color: var(--color-green-dark);
+}
+
+/* Breadcrumbs */
+div.breadcrumbs {
+    padding: 0.65rem 1.5rem;
+    border-bottom: 1px solid var(--hairline-color);
+}
+
+div.breadcrumbs a:focus,
+div.breadcrumbs a:hover {
+    color: var(--color-olive);
+}
+
+/* Área principal */
+#content {
+    padding: 1rem 1.25rem 2rem;
+}
+
+/* Módulos / cartões */
+.module,
+.dashboard #content-main .module,
+.inline-group {
+    border: 1px solid var(--admin-border-subtle);
+    border-radius: var(--admin-radius);
+    box-shadow: 0 2px 6px rgba(61, 75, 50, 0.06);
+    overflow: hidden;
+}
+
+.module h2,
+.module caption,
+.inline-group h2 {
+    background: var(--admin-surface-muted);
+    color: var(--color-green-dark);
+    font-weight: 700;
+    padding: 0.65rem 1rem;
+    border-bottom: 1px solid var(--hairline-color);
+}
+
+/* Tabelas de listagem / edição */
+#result_list,
+.module table {
+    border-collapse: collapse;
+}
+
+#result_list thead th {
+    background: rgba(61, 75, 50, 0.06);
+    font-family: var(--font-title), sans-serif;
+    font-weight: 600;
+}
+
+#changelist table tbody tr:hover {
+    background: var(--darkened-bg);
+}
+
+/* Sidebar — clara, como o conteúdo (sem barra escura) */
+.toggle-nav-sidebar {
+    border-right-color: var(--hairline-color);
+}
+
+#nav-sidebar {
+    background: var(--color-white);
+    border-right: 1px solid var(--hairline-color);
+}
+
+#nav-sidebar .module {
+    border: none;
+    border-radius: var(--admin-radius-sm);
+    box-shadow: none;
+    margin-bottom: 0.75rem;
+    overflow: hidden;
+}
+
+#nav-sidebar .module caption,
+#nav-sidebar table caption {
+    background: var(--admin-surface-muted);
+    color: var(--color-green-dark);
+    font-weight: 700;
+    font-family: var(--font-title), sans-serif;
+}
+
+/* Nome do modelo (coluna principal) */
+#nav-sidebar .module tr th a {
+    display: block;
+    padding: 0.6rem 1rem;
+    border-radius: var(--admin-radius-sm);
+}
+
+#nav-sidebar .module tr th a:hover {
+    background: rgba(147, 164, 42, 0.12);
+}
+
+/*
+ * Links com ícone (add / alterar): o padding genérico em `tr a` deslocava o
+ * background do SVG; centralizamos o ícone na célula estreita.
+ */
+#nav-sidebar .module td {
+    vertical-align: middle;
+    text-align: center;
+}
+
+#nav-sidebar td a.addlink,
+#nav-sidebar td a.changelink,
+#nav-sidebar td a.viewlink {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-width: 2rem;
+    min-height: 2.25rem;
+    margin: 0 auto;
+    padding: 0.35rem 0.5rem 0.35rem 1.35rem;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-position: 0.4rem 50%;
+    line-height: 1;
+    text-align: left;
+}
+
+#nav-sidebar td a.addlink:hover,
+#nav-sidebar td a.changelink:hover,
+#nav-sidebar td a.viewlink:hover {
+    background-color: rgba(147, 164, 42, 0.12);
+    border-radius: var(--admin-radius-sm);
+}
+
+/* Sobrescreve base do admin (usa --header-color, inadequado em sidebar clara) */
+#nav-sidebar .current-app .section:link,
+#nav-sidebar .current-app .section:visited {
+    color: var(--color-green-dark);
+    font-weight: 700;
+}
+
+/* Formulários */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="url"],
+input[type="search"],
+input:not([type]),
+textarea,
+select {
+    border-radius: var(--admin-radius-sm);
+    border: 1px solid var(--admin-border-subtle);
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+.vTextField:focus {
+    outline: none;
+    border-color: rgba(147, 164, 42, 0.65);
+    box-shadow: 0 0 0 3px rgba(147, 164, 42, 0.22);
+}
+
+.submit-row {
+    border-top: 1px solid var(--hairline-color);
+    background: rgba(61, 75, 50, 0.03);
+}
+
+/* Mensagens flash */
+.messagelist li {
+    border-radius: var(--admin-radius-sm);
+}
+
+/* Login e páginas sem sidebar */
+.login #header {
+    justify-content: center;
+}
+
+.login #container {
+    background: var(--body-bg);
 }
