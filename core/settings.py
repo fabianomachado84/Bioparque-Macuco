@@ -35,7 +35,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -109,11 +108,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
-JAZZMIN_SETTINGS = {
-    "show_ui_builder": True,
-    "custom_css": "css/admin-custom.css",
-}
 
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
