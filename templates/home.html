@@ -7,208 +7,224 @@
 
 <!-- Hero -->
 <section class="hero">
-    <div class="hero__content">
-        <h1 class="hero__title">Aprenda com quem vive o manejo de animais na prática</h1>
-        <p class="hero__subtitle">
-            Explore nosso mantenedouro de fauna e especialize-se com cursos práticos
-            ministrados por quem vive a conservação todos os dias
-        </p>
-        <div class="hero__actions">
-            <a href="#visita" class="btn btn--olive">PLANEJE SUA VISITA</a>
-        </div>
-    </div>
-    <div class="hero__image">
-        <img src="{% static 'images/hero.svg' %}" alt="Animais no Bioparque Macuco">
+  <div class="hero__content">
+    <h1 class="hero__title">Aprenda com quem vive o manejo de animais na prática</h1>
+    <p class="hero__subtitle">
+    Explore nosso mantenedouro de fauna e especialize-se com cursos práticos
+    ministrados por quem vive a conservação todos os dias
+    </p>
+    <div class="hero__actions">
+      <a href="#cursos" class="btn btn--olive">CONHEÇA OS CURSOS</a>
+      <a href="#visita" class="btn btn--olive">PLANEJE SUA VISITA</a>
     </div>
 </section>
 
 <!-- Cursos em Destaque -->
 <section class="cursos" id="cursos">
-    <div class="cursos__container">
-        <h2 class="section-title section-title--green-text">CURSOS EM DESTAQUE</h2>
+  <div class="cursos__container">
+    <h2 class="section-title section-title--green-text">CURSOS EM DESTAQUE</h2>
 
-        <div class="cursos__grid">
-            <div class="card-curso">
-                <div class="card-curso__image">
-                    <img src="{% static 'images/curso-placeholder.svg' %}" alt="Curso">
-                </div>
-                <div class="card-curso__body">
-                    <h3 class="card-curso__title">Nome do curso</h3>
-                    <p class="card-curso__desc">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                        nisi ut aliquip ex ea commodo consequat.
-                    </p>
-                    <div class="card-curso__meta">
-                        <span class="card-curso__duration">4 horas</span>
-                        <span class="card-curso__price">R$65,00 + 1 kg de ração</span>
-                    </div>
-                    <p class="card-curso__cert">
-                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 15l-2 5l1-3h2l1 3l-2-5z"/>
-                            <circle cx="12" cy="9" r="6"/>
-                        </svg>
-                        Certificado disponibilizado
-                    </p>
-                </div>
-            </div>
 
-            <div class="card-curso">
-                <div class="card-curso__image">
-                    <img src="{% static 'images/curso-placeholder.svg' %}" alt="Curso">
-                </div>
-                <div class="card-curso__body">
-                    <h3 class="card-curso__title">Nome do curso</h3>
-                    <p class="card-curso__desc">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                        nisi ut aliquip ex ea commodo consequat.
-                    </p>
-                    <div class="card-curso__meta">
-                        <span class="card-curso__duration">4 horas</span>
-                        <span class="card-curso__price">R$65,00 + 1 kg de ração</span>
-                    </div>
-                    <p class="card-curso__cert">
-                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 15l-2 5l1-3h2l1 3l-2-5z"/>
-                            <circle cx="12" cy="9" r="6"/>
-                        </svg>
-                        Certificado disponibilizado
-                    </p>
-                </div>
-            </div>
-
-            <div class="card-curso">
-                <div class="card-curso__image">
-                    <img src="{% static 'images/curso-placeholder.svg' %}" alt="Curso">
-                </div>
-                <div class="card-curso__body">
-                    <h3 class="card-curso__title">Nome do curso</h3>
-                    <p class="card-curso__desc">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                        nisi ut aliquip ex ea commodo consequat.
-                    </p>
-                    <div class="card-curso__meta">
-                        <span class="card-curso__duration">4 horas</span>
-                        <span class="card-curso__price">R$65,00 + 1 kg de ração</span>
-                    </div>
-                    <p class="card-curso__cert">
-                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 15l-2 5l1-3h2l1 3l-2-5z"/>
-                            <circle cx="12" cy="9" r="6"/>
-                        </svg>
-                        Certificado disponibilizado
-                    </p>
-                </div>
-            </div>
+  <div class="cursos__grid">
+    <!-- Card 1 -->
+    <div class="card-curso">
+      <div class="card-curso__image">
+        <img src="{% static 'images/curso-placeholder.svg' %}" alt="Curso">
+      </div>
+      <div class="card-curso__body">
+        <h3 class="card-curso__title">Nome do curso</h3>
+        <p class="card-curso__desc">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+        nisi ut aliquip ex ea commodo consequat.
+        </p>
+        <div class="card-curso__meta">
+          <span class="card-curso__duration">4 horas</span>
+          <span class="card-curso__price">R$65,00 + 1 kg de ração</span>
         </div>
-
-        <div class="cursos__action">
-            <a href="{% url 'enrollment' %}" class="btn btn--olive">TODOS OS CURSOS</a>
+        <div class="card-curso__footer">
+          <div class="card-curso__cert">
+            <svg viewBox="0 0 24 24" width="25" height="25" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 15l-2 5l1-3h2l1 3l-2-5z"/>
+              <circle cx="12" cy="9" r="6"/>
+            </svg>
+            <p>Certificado disponibilizado</p>
+          </div> 
+          <div>
+            <a href="#" class="btn-saiba-mais">SAIBA MAIS</a>
+          </div>
         </div>
+      </div>
     </div>
+
+    <!-- Card 2 -->
+    <div class="card-curso">
+      <div class="card-curso__image">
+        <img src="{% static 'images/curso-placeholder.svg' %}" alt="Curso">
+      </div>
+      <div class="card-curso__body">
+        <h3 class="card-curso__title">Nome do curso</h3>
+        <p class="card-curso__desc">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+        nisi ut aliquip ex ea commodo consequat.
+        </p>
+        <div class="card-curso__meta">
+          <span class="card-curso__duration">4 horas</span>
+          <span class="card-curso__price">R$65,00 + 1 kg de ração</span>
+        </div>
+        <div class="card-curso__footer">
+          <div class="card-curso__cert">
+            <svg viewBox="0 0 24 24" width="25" height="25" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 15l-2 5l1-3h2l1 3l-2-5z"/>
+              <circle cx="12" cy="9" r="6"/>
+            </svg>
+            <p>Certificado disponibilizado</p>
+          </div> 
+          <div>
+            <a href="#" class="btn-saiba-mais">SAIBA MAIS</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card-curso">
+      <div class="card-curso__image">
+        <img src="{% static 'images/curso-placeholder.svg' %}" alt="Curso">
+      </div>
+      <div class="card-curso__body">
+        <h3 class="card-curso__title">Nome do curso</h3>
+        <p class="card-curso__desc">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+        nisi ut aliquip ex ea commodo consequat.
+        </p>
+        <div class="card-curso__meta">
+          <span class="card-curso__duration">4 horas</span>
+          <span class="card-curso__price">R$65,00 + 1 kg de ração</span>
+        </div>
+        <div class="card-curso__footer">
+          <div class="card-curso__cert">
+            <svg viewBox="0 0 24 24" width="25" height="25" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 15l-2 5l1-3h2l1 3l-2-5z"/>
+              <circle cx="12" cy="9" r="6"/>
+            </svg>
+            <p>Certificado disponibilizado</p>
+          </div> 
+          <div>
+            <a href="#" class="btn-saiba-mais">SAIBA MAIS</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cursos__action">
+      <a href="{% url 'enrollment' %}" class="btn btn--olive">TODOS OS CURSOS</a>
+  </div>
+  </div>
 </section>
 
 <!-- Regras e Dicas -->
 <section class="dicas" id="visita">
-    <div class="dicas__container">
-        <h2 class="section-title section-title--dark">REGRAS E DICAS PARA A VISITAÇÃO</h2>
+  <div class="dicas__container">
+    <h2 class="section-title section-title--dark">REGRAS E DICAS PARA A VISITAÇÃO</h2>
 
-        <div class="dicas__grid">
-            <div class="card-dica">
-                <h3 class="card-dica__title">Dica número um</h3>
-                <p class="card-dica__desc">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                    nisi ut aliquip ex ea commodo consequat.
-                </p>
-            </div>
-            <div class="card-dica">
-                <h3 class="card-dica__title">Dica número um</h3>
-                <p class="card-dica__desc">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                    nisi ut aliquip ex ea commodo consequat.
-                </p>
-            </div>
-            <div class="card-dica">
-                <h3 class="card-dica__title">Dica número um</h3>
-                <p class="card-dica__desc">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                    nisi ut aliquip ex ea commodo consequat.
-                </p>
-            </div>
-            <div class="card-dica">
-                <h3 class="card-dica__title">Dica número um</h3>
-                <p class="card-dica__desc">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                    nisi ut aliquip ex ea commodo consequat.
-                </p>
-            </div>
-            <div class="card-dica">
-                <h3 class="card-dica__title">Dica número um</h3>
-                <p class="card-dica__desc">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                    nisi ut aliquip ex ea commodo consequat.
-                </p>
-            </div>
-            <div class="card-dica">
-                <h3 class="card-dica__title">Dica número um</h3>
-                <p class="card-dica__desc">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                    nisi ut aliquip ex ea commodo consequat.
-                </p>
-            </div>
-        </div>
-        <div class="dicas__action">
-    <a href="{% url 'enrollment' %}" class="btn btn--primary">INSCREVER-SE</a>
-</div>
+    <div class="dicas__grid">
+      <div class="card-dica">
+        <h3 class="card-dica__title">Dica número um</h3>
+        <p class="card-dica__desc">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+        nisi ut aliquip ex ea commodo consequat.
+        </p>
+      </div>
+      <div class="card-dica">
+        <h3 class="card-dica__title">Dica número um</h3>
+        <p class="card-dica__desc">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+        nisi ut aliquip ex ea commodo consequat.
+        </p>
+      </div>
+      <div class="card-dica">
+        <h3 class="card-dica__title">Dica número um</h3>
+        <p class="card-dica__desc">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+        nisi ut aliquip ex ea commosdo.
+        </p>
+      </div>
+      <div class="card-dica">
+        <h3 class="card-dica__title">Dica número um</h3>
+        <p class="card-dica__desc">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+        nisi ut aliquip ex ea commodo consequat.
+        </p>
+      </div>
+      <div class="card-dica">
+        <h3 class="card-dica__title">Dica número um</h3>
+        <p class="card-dica__desc">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+        nisi ut aliquip ex ea commodo consequat.
+        </p>
+      </div>
+      <div class="card-dica">
+        <h3 class="card-dica__title">Dica número um</h3>
+        <p class="card-dica__desc">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+        nisi ut aliquip ex ea commodo consequat.
+        </p>
+      </div>
     </div>
+    <div class="dicas__action">
+      <a href="{% url 'enrollment' %}" class="btn btn--primary">INSCREVER-SE</a>
+    </div>
+  </div>
 </section>
 
 
 <!-- Cronograma -->
 <section class="cronograma" id="cronograma">
-    <div class="cronograma__container">
-        <h2 class="section-title section-title--green-text">CRONOGRAMA MENSAL</h2>
+  <div class="cronograma__container">
+    <h2 class="section-title section-title--green-text">CRONOGRAMA MENSAL</h2>
 
-        <div class="cronograma__grid">
-            <div class="card-crono">
-                <h3 class="card-crono__date">01/04 a 16/04</h3>
-                <p class="card-crono__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <p class="card-crono__vagas">28 vagas disponíveis</p>
-            </div>
-            <div class="card-crono">
-                <h3 class="card-crono__date">01/04 a 16/04</h3>
-                <p class="card-crono__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <p class="card-crono__vagas">28 vagas disponíveis</p>
-            </div>
-            <div class="card-crono">
-                <h3 class="card-crono__date">01/04 a 16/04</h3>
-                <p class="card-crono__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <p class="card-crono__vagas">28 vagas disponíveis</p>
-            </div>
-            <div class="card-crono">
-                <h3 class="card-crono__date">01/04 a 16/04</h3>
-                <p class="card-crono__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <p class="card-crono__vagas">28 vagas disponíveis</p>
-            </div>
-        </div>
+    <div class="cronograma__grid">
+      <div class="card-crono">
+        <h3 class="card-crono__date">01/04 a 16/04</h3>
+        <p class="card-crono__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p class="card-crono__vagas">28 vagas disponíveis</p>
+      </div>
+      <div class="card-crono">
+        <h3 class="card-crono__date">01/04 a 16/04</h3>
+        <p class="card-crono__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p class="card-crono__vagas">28 vagas disponíveis</p>
+      </div>
+      <div class="card-crono">
+        <h3 class="card-crono__date">01/04 a 16/04</h3>
+        <p class="card-crono__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p class="card-crono__vagas">28 vagas disponíveis</p>
+      </div>
+      <div class="card-crono">
+        <h3 class="card-crono__date">01/04 a 16/04</h3>
+        <p class="card-crono__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p class="card-crono__vagas">28 vagas disponíveis</p>
+      </div>
     </div>
+  </div>
 </section>
 
 {% endblock %}

@@ -1,4 +1,4 @@
-/* ===== Cursos em Destaque ===== */
+/* ===== Cursos em Destaque ===== alterado === */
 .cursos {
     background-color: var(--color-teal-darker);
     padding: 4rem 1.5rem;
@@ -66,14 +66,42 @@
     font-weight: 600;
 }
 
+.card-curso__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.btn-saiba-mais {
+    display: inline-block;
+    padding: 10px 18px;
+    background-color: #93a634; 
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 12px; 
+    font-weight: bold;
+    font-size: 0.85rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+}
+
+.btn-saiba-mais:hover {
+    background-color: #7d8d2b;
+}
+
+
 .card-curso__cert {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: left;
+    align-items: left;
     gap: 0.4rem;
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-weight: 600;    
-    text-align: center;
+    max-width:120px;
+    line-height:1,2;
+    text-align: left;
     margin: 0 auto;
 }
 
