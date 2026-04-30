@@ -10,3 +10,8 @@ class PaymentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Payment
         fields = ['id', 'enrollment', 'payment_date', 'payment_method', 'payment_origin', 'status', 'money_amount', 'item_quantity_kg', 'approved_by']
+
+class StudentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Student
+        fields = ['id', 'name', 'email', 'cpf', 'phone', 'emergency_contact']
