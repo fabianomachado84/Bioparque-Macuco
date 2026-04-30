@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Enrollment, Payment
+from .models import Enrollment, Payment, Student
 
 class EnrollmentSerializer(serializers.ModelSerializer):
     class Meta:

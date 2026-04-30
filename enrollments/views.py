@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from .models import Enrollment, Payment
-from .serializers import EnrollmentSerializer, PaymentSerializer
+from .models import Enrollment, Payment, Student
+from .serializers import EnrollmentSerializer, PaymentSerializer, StudentSerializer
 
 class EnrollmentViewSet(viewsets.ModelViewSet):
     queryset = Enrollment.objects.all()
