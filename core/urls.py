@@ -28,5 +28,6 @@ urlpatterns = [
     path('sobre/', TemplateView.as_view(template_name='about.html'), name='about'),
     path('inscricao/', TemplateView.as_view(template_name='enrollment.html'), name='enrollment'),
     path('admin/', admin.site.urls),
-    path('api/', include('courses.urls')),
+    path('api/courses/', include('courses.urls')),
+    path('api/accounts/', include('accounts.urls')),
 ]
