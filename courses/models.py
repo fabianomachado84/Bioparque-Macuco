@@ -13,6 +13,10 @@ class Course(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        verbose_name = "Curso"
+        verbose_name_plural = "Cursos"
+
     def __str__(self) -> str:
         return str(self.name)
 
@@ -32,6 +36,10 @@ class Lesson(models.Model):
         default=False,
         help_text="Turma fechada: não aparece na listagem pública e só admin pode inscrever alunos."
     )
+
+    class Meta:
+        verbose_name = "Turma"
+        verbose_name_plural = "Turmas"
 
     def __str__(self) -> str:
         suffix = self.label or str(self.start_date)

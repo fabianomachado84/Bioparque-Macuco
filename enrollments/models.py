@@ -27,6 +27,10 @@ class Student(models.Model):
         help_text="Data de nascimento. Usada para verificar restrições de idade em cursos e identificar menores que precisem de autorização."
     )
 
+    class Meta:
+        verbose_name = "Aluno"
+        verbose_name_plural = "Alunos"
+
     @property
     def age(self) -> int:
         """Idade atual calculada a partir de birth_date."""
@@ -65,6 +69,8 @@ class Enrollment(models.Model):
     )
 
     class Meta:
+        verbose_name = "Inscrição"
+        verbose_name_plural = "Inscrições"
         constraints = [UniqueConstraint(
             fields=['student', 'lesson'],
             condition=~Q(status__in=['rejected', 'expired']),
@@ -115,6 +121,10 @@ class Payment(models.Model):
     
     # Approved by  (Optional for online, mandatory for in-person)
     approved_by = models.ForeignKey('accounts.Employee', on_delete=models.SET_NULL, null=True, blank=True)
+
+    class Meta:
+        verbose_name = "Pagamento"
+        verbose_name_plural = "Pagamentos"
 
     def clean(self):
         if self.payment_method == 'donation_item' and not self.item_quantity_kg:
