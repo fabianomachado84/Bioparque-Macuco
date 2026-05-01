@@ -1,8 +1,11 @@
 from django.contrib import admin
+
+from core.admin_helpers import NativeDatePickerMixin
+
 from .models import Instructor, Employee
 
 @admin.register(Employee)
-class EmployeeAdmin(admin.ModelAdmin):
+class EmployeeAdmin(NativeDatePickerMixin, admin.ModelAdmin):
     list_display = ['user', 'role', 'hire_date']
     search_fields = ['user__username', 'user__first_name', 'role']
     list_filter = ['role']
