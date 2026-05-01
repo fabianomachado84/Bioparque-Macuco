@@ -1,8 +1,33 @@
+from django import forms
 from django.contrib import admin
+
+from core.admin_helpers import NativeDatePickerMixin
+
 from .models import Lesson, Course
 
+
+class CourseAdminForm(forms.ModelForm):
+    """Course form with M2M validation (instructors must have at least one entry).
+
+    The check lives here, not on the model's `clean()`, because Django saves
+    M2M relations after `clean()` runs, so model-level validation can't see
+    the in-progress selection.
+    """
+
+    class Meta:
+        model = Course
+        fields = "__all__"
+
+    def clean_instructors(self):
+        instructors = self.cleaned_data.get("instructors")
+        if not instructors:
+            raise forms.ValidationError("O curso precisa ter pelo menos 1 instrutor.")
+        return instructors
+
+
 @admin.register(Course)
-class CourseAdmin(admin.ModelAdmin):
+class CourseAdmin(NativeDatePickerMixin, admin.ModelAdmin):
+    form = CourseAdminForm
     list_display = ['name', 'duration_hours', 'price', 'has_certificate', 'status']
     list_filter = ['status', 'has_certificate']
     search_fields = ['name', 'description', 'syllabus']
@@ -31,7 +56,7 @@ class CourseAdmin(admin.ModelAdmin):
     )
 
 @admin.register(Lesson)
-class LessonAdmin(admin.ModelAdmin):
+class LessonAdmin(NativeDatePickerMixin, admin.ModelAdmin):
     list_display = ['course', 'start_date', 'start_time', 'end_time', 'capacity', 'instructor']
     list_filter = ['course', 'instructor']
     search_fields = ['course__name', 'instructor__employee__user__first_name']

@@ -17,8 +17,12 @@ class Employee(models.Model):
         verbose_name = "Funcionário"
         verbose_name_plural = "Funcionários"
 
+    def display_name(self) -> str:
+        """Full name when available, falls back to username."""
+        return self.user.get_full_name() or self.user.username
+
     def __str__(self):
-        return f"{self.user.username} - {self.role}"
+        return f"{self.display_name()} - {self.role}"
 
 # Instructor
 class Instructor(models.Model):
@@ -44,5 +48,5 @@ class Instructor(models.Model):
         ordering = ['employee__user__first_name']
 
     def __str__(self):
-        return f"{self.employee.user.get_full_name()} ({self.specialty})"
+        return f"{self.employee.display_name()} ({self.specialty})"
 

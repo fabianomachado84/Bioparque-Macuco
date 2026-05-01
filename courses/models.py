@@ -1,4 +1,3 @@
-from django.core.exceptions import ValidationError
 from django.db import models
 
 # Course #
@@ -63,12 +62,6 @@ class Course(models.Model):
     class Meta:
         verbose_name = "Curso"
         verbose_name_plural = "Cursos"
-
-    def clean(self):
-        # M2M validation only runs after the initial save (pk must exist).
-        # Django re-runs clean() in the admin after the M2M relations are persisted.
-        if self.pk and not self.instructors.exists():
-            raise ValidationError({"instructors": "O curso precisa ter pelo menos 1 instrutor."})
 
     def __str__(self) -> str:
         return str(self.name)
