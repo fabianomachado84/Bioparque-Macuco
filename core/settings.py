@@ -141,3 +141,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+# Uploaded files (user-uploaded content, e.g. course images)
+# https://docs.djangoproject.com/en/6.0/topics/files/
+
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+

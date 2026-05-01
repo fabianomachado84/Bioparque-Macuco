@@ -9,3 +9,6 @@ models_temp.py
 __pycache__/
 *.py[cod]
 *$py.class
+
+# Django uploads (do not version content uploaded via admin)
+media/

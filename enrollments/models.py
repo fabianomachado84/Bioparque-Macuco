@@ -18,13 +18,14 @@ def default_enrollment_expiration():
 
 # Student
 class Student(models.Model):
-    name = models.CharField(max_length=255)
-    email = models.EmailField(unique=True)
-    cpf = models.CharField(max_length=14, unique=True)
-    phone = models.CharField(max_length=20)
-    emergency_contact = models.CharField(max_length=20)
+    name = models.CharField("Nome", max_length=255)
+    email = models.EmailField("E-mail", unique=True)
+    cpf = models.CharField("CPF", max_length=14, unique=True)
+    phone = models.CharField("Telefone", max_length=20)
+    emergency_contact = models.CharField("Contato de emergência", max_length=20)
     birth_date = models.DateField(
-        help_text="Data de nascimento. Usada para verificar restrições de idade em cursos e identificar menores que precisem de autorização."
+        "Data de nascimento",
+        help_text="Usada para verificar restrições de idade em cursos e identificar menores que precisem de autorização.",
     )
 
     class Meta:
@@ -33,7 +34,7 @@ class Student(models.Model):
 
     @property
     def age(self) -> int:
-        """Idade atual calculada a partir de birth_date."""
+        """Current age derived from birth_date."""
         today = date.today()
         years = today.year - self.birth_date.year
         if (today.month, today.day) < (self.birth_date.month, self.birth_date.day):
@@ -42,7 +43,7 @@ class Student(models.Model):
 
     @property
     def is_minor(self) -> bool:
-        """Indica se o aluno é menor de idade (precisa de autorização do responsável)."""
+        """Whether the student is under 18 (needs guardian authorization)."""
         return self.age < 18
 
     def __str__(self) -> str:
@@ -51,21 +52,35 @@ class Student(models.Model):
 # Enrollment 
 class Enrollment(models.Model):
     STATUS_CHOICES = [
-        ('pending', 'Pending'),
-        ('approved', 'Approved'),
-        ('rejected', 'Rejected'),
-        ('expired', 'Expired'),
+        ('pending', 'Pendente'),
+        ('approved', 'Aprovada'),
+        ('rejected', 'Rejeitada'),
+        ('expired', 'Expirada'),
     ]
 
-    student = models.ForeignKey(Student, on_delete=models.PROTECT, related_name='enrollments')
-    lesson = models.ForeignKey('courses.Lesson', on_delete=models.PROTECT, related_name='enrollments')
-    enrollment_date = models.DateTimeField(auto_now_add=True)
-    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='pending')
-    is_overbooked = models.BooleanField(default=False)
+    student = models.ForeignKey(
+        Student, on_delete=models.PROTECT, related_name='enrollments',
+        verbose_name="Aluno",
+    )
+    lesson = models.ForeignKey(
+        'courses.Lesson', on_delete=models.PROTECT, related_name='enrollments',
+        verbose_name="Turma",
+    )
+    enrollment_date = models.DateTimeField("Data da inscrição", auto_now_add=True)
+    status = models.CharField(
+        "Status",
+        max_length=20, choices=STATUS_CHOICES, default='pending',
+    )
+    is_overbooked = models.BooleanField(
+        "Overbooking",
+        default=False,
+        help_text="Marcado quando um admin força a inscrição mesmo com a turma cheia.",
+    )
     expires_at = models.DateTimeField(
+        "Expira em",
         null=True, blank=True,
         default=default_enrollment_expiration,
-        help_text="Prazo para o pagamento ser confirmado. Se status ainda for 'pending' após este horário, vira 'expired' e a vaga é liberada."
+        help_text="Prazo para confirmar o pagamento. Após esse horário, inscrições pendentes viram 'expirada' e a vaga é liberada.",
     )
 
     class Meta:
@@ -94,33 +109,67 @@ class Enrollment(models.Model):
 # Payment
 class Payment(models.Model):
     METHOD_CHOICES = [
-        ('credit_card', 'Credit Card'), ('pix', 'Pix'), ('cash', 'Cash'),
-        ('donation_item', 'Donation Item'), ('hybrid', 'Hybrid'), ('scholarship', 'Scholarship')
+        ('credit_card', 'Cartão de crédito'),
+        ('pix', 'Pix'),
+        ('cash', 'Dinheiro'),
+        ('donation_item', 'Doação de ração'),
+        ('hybrid', 'Híbrido (dinheiro + ração)'),
+        ('scholarship', 'Bolsa'),
     ]
-    STATUS_CHOICES = [('pending', 'Pending'), ('confirmed', 'Confirmed')]
-    ORIGIN_CHOICES = [('online', 'Online'), ('in_person', 'In Person')]
+    STATUS_CHOICES = [
+        ('pending', 'Pendente'),
+        ('confirmed', 'Confirmado'),
+    ]
+    ORIGIN_CHOICES = [
+        ('online', 'Online'),
+        ('in_person', 'Presencial'),
+    ]
     DONATION_TYPE_CHOICES = [
-        ('dog_food', 'Ração de Cachorro'),
-        ('cat_food', 'Ração de Gato'),
-        ('bird_food', 'Ração de Pássaro'),
+        ('dog_food', 'Ração de cachorro'),
+        ('cat_food', 'Ração de gato'),
+        ('bird_food', 'Ração de pássaro'),
     ]
 
-    enrollment = models.ForeignKey(Enrollment, on_delete=models.PROTECT, related_name='payments')
-    payment_date = models.DateTimeField(auto_now_add=True)
-    payment_method = models.CharField(max_length=20, choices=METHOD_CHOICES)
-    payment_origin = models.CharField(max_length=10, choices=ORIGIN_CHOICES, default='online')
-    status = models.CharField(max_length=15, choices=STATUS_CHOICES, default='pending')
-    
-    # Payment Methods ( Money or Donation Item )
-    money_amount = models.DecimalField(max_digits=10, decimal_places=2, default=0)
-    item_quantity_kg = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
-    donation_type = models.CharField(
-        max_length=20, choices=DONATION_TYPE_CHOICES, blank=True,
-        help_text="Tipo de ração doada. Obrigatório quando payment_method é 'donation_item' ou 'hybrid'."
+    enrollment = models.ForeignKey(
+        Enrollment, on_delete=models.PROTECT, related_name='payments',
+        verbose_name="Inscrição",
     )
-    
-    # Approved by  (Optional for online, mandatory for in-person)
-    approved_by = models.ForeignKey('accounts.Employee', on_delete=models.SET_NULL, null=True, blank=True)
+    payment_date = models.DateTimeField("Data do pagamento", auto_now_add=True)
+    payment_method = models.CharField(
+        "Método de pagamento",
+        max_length=20, choices=METHOD_CHOICES,
+    )
+    payment_origin = models.CharField(
+        "Origem",
+        max_length=10, choices=ORIGIN_CHOICES, default='online',
+    )
+    status = models.CharField(
+        "Status",
+        max_length=15, choices=STATUS_CHOICES, default='pending',
+    )
+
+    # Money or in-kind donation values
+    money_amount = models.DecimalField(
+        "Valor (R$)",
+        max_digits=10, decimal_places=2, default=0,
+    )
+    item_quantity_kg = models.DecimalField(
+        "Quantidade doada (kg)",
+        max_digits=10, decimal_places=2, null=True, blank=True,
+    )
+    donation_type = models.CharField(
+        "Tipo de doação",
+        max_length=20, choices=DONATION_TYPE_CHOICES, blank=True,
+        help_text="Tipo de ração doada. Obrigatório quando o método é 'Doação de ração' ou 'Híbrido'.",
+    )
+
+    # Optional for online, mandatory for in-person
+    approved_by = models.ForeignKey(
+        'accounts.Employee', on_delete=models.SET_NULL,
+        null=True, blank=True,
+        verbose_name="Aprovado por",
+        help_text="Funcionário que validou o pagamento. Obrigatório para pagamentos presenciais.",
+    )
 
     class Meta:
         verbose_name = "Pagamento"

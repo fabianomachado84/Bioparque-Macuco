@@ -3,9 +3,15 @@ from django.contrib.auth.models import User
 
 
 class Employee(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='employee_profile')
-    role = models.CharField(max_length=100)
-    hire_date = models.DateField()
+
+    class Meta:
+        verbose_name = "Funcionário"
+    user = models.OneToOneField(
+        User, on_delete=models.CASCADE, related_name='employee_profile',
+        verbose_name="Usuário",
+    )
+    role = models.CharField("Cargo", max_length=100)
+    hire_date = models.DateField("Data de contratação")
 
     class Meta:
         verbose_name = "Funcionário"
@@ -16,10 +22,21 @@ class Employee(models.Model):
 
 # Instructor
 class Instructor(models.Model):
-    employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
+    employee = models.ForeignKey(
+        Employee, on_delete=models.CASCADE,
+        verbose_name="Funcionário",
+    )
 
-    bio = models.TextField(blank=True,help_text="Breve currículo do Instrutor")
-    specialty = models.CharField(max_length=100, help_text="Ex: Matemática,Programação, Python, etc...")
+    bio = models.TextField(
+        "Biografia",
+        blank=True,
+        help_text="Breve currículo do instrutor.",
+    )
+    specialty = models.CharField(
+        "Especialidade",
+        max_length=100,
+        help_text="Ex: Biologia marinha, Trilhas, Educação ambiental, etc.",
+    )
 
     class Meta:
         verbose_name = "Instrutor"

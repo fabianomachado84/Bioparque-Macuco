@@ -72,12 +72,29 @@ Table Instructor {
 Table Course {
   id int [pk, increment]
   name varchar
-  description text
+  description text [note: 'Resumo curto do curso (1-2 parágrafos), aparece em cards e no topo da tela de detalhes.']
+  syllabus text [note: 'Roteiro/conteúdo programático. Aceita Markdown.']
   duration_hours int
   price decimal
   status course_status
+  image varchar [null, note: 'Caminho do arquivo de imagem enviado pelo admin (armazenado em MEDIA_ROOT/courses/).']
+  min_age int [null, note: 'Idade mínima exigida. Vazio = sem restrição.']
+  has_certificate boolean [default: true, note: 'Curso emite certificado ao final?']
+  donation_kg_required decimal [null, note: 'kg de ração exigidos como parte do pagamento. Vazio = não exige.']
   created_at datetime
   updated_at datetime
+}
+
+// Relação M2M: um Curso pode ter vários Instrutores e um Instrutor pode lecionar vários Cursos.
+// Mínimo 1 instrutor por curso (validado no clean()).
+Table CourseInstructor {
+  id int [pk, increment]
+  course_id int [ref: > Course.id]
+  instructor_id int [ref: > Instructor.id]
+
+  indexes {
+    (course_id, instructor_id) [unique]
+  }
 }
 
 Table Class {
