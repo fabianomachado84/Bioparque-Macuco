@@ -3,6 +3,7 @@ Enum enrollment_status {
   pending
   approved
   rejected
+  expired
 }
 
 Enum payment_status {
@@ -86,6 +87,8 @@ Table Class {
   start_time time
   end_time time
   capacity int
+  label varchar [note: 'Nome opcional da turma (ex: "Turma escola Eusébio Farias")']
+  is_private boolean [default: false, note: 'Turma fechada: não aparece na listagem pública']
 }
 
 // ========================
@@ -99,6 +102,7 @@ Table Student {
   cpf varchar [unique, note: 'Útil para futura validação de certificado']
   phone varchar
   emergency_contact varchar
+  birth_date date [note: 'Data de nascimento. Idade é derivada (não armazenada) e usada para restrições de idade e identificação de menores.']
   note: 'Visitante/Aluno de compra rápida. Não acessa o painel.'
 }
 
@@ -109,6 +113,7 @@ Table Enrollment {
   enrollment_date datetime
   status enrollment_status
   is_overbooked boolean [default: false] //If admin create a enrollment with full capacity
+  expires_at datetime [null, note: 'Prazo para confirmar pagamento. Após esse horário, pending vira expired automaticamente.']
 }
 
 Table Payment {
@@ -118,6 +123,7 @@ Table Payment {
   payment_method payment_method
   money_amount decimal
   item_quantity_kg decimal
+  donation_type donation_type [null, note: 'Tipo da ração doada. Obrigatório se payment_method for donation_item ou hybrid.']
   status payment_status
   approved_by_id int [ref: > Employee.id] // O funcionário que validou no caixa ou sistema
   payment_origin payment_origin [default: 'online'] // online or in_person

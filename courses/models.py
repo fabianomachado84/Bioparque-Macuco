@@ -24,7 +24,16 @@ class Lesson(models.Model):
     end_time = models.TimeField()
     capacity = models.IntegerField()
     instructor = models.ForeignKey('accounts.Instructor',on_delete=models.PROTECT,related_name='lessons')
+    label = models.CharField(
+        max_length=100, blank=True,
+        help_text="Nome opcional da turma (ex: 'Turma escola Eusébio Farias'). Se vazio, usa numeração automática."
+    )
+    is_private = models.BooleanField(
+        default=False,
+        help_text="Turma fechada: não aparece na listagem pública e só admin pode inscrever alunos."
+    )
 
     def __str__(self) -> str:
-        return f"{str(self.course.name)} - {str(self.start_date)}"
+        suffix = self.label or str(self.start_date)
+        return f"{self.course.name} - {suffix}"
 

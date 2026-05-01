@@ -27,21 +27,21 @@ Install the [DBML Live Preview](https://marketplace.visualstudio.com/items?itemN
 | Table | Description |
 |---|---|
 | **Course** | Available courses with name, description, duration, price and status. |
-| **Lesson** | Specific lesson sessions for a course, with date, time, capacity and assigned instructor. |
+| **Lesson** | Specific lesson sessions for a course, with date, time, capacity and assigned instructor. Supports an optional `label` (custom name, e.g. closed school groups) and `is_private` flag (hidden from public listing, admin-only enrollment). |
 
 ### Students, Enrollments & Payments
 
 | Table | Description |
 |---|---|
-| **Student** | Visitors/quick-purchase students. No panel access. Identified by CPF and email. |
-| **Enrollment** | Links a student to a lesson, with status tracking (pending/approved/rejected). |
-| **Payment** | Payment details for an enrollment. Supports multiple methods including donations (kg). |
+| **Student** | Visitors/quick-purchase students. No panel access. Identified by CPF and email. Stores `birth_date` (age is derived, used for course age restrictions and minor identification). |
+| **Enrollment** | Links a student to a lesson, with status tracking (pending/approved/rejected/expired). Pending enrollments have an `expires_at` deadline; if not paid by then, status auto-changes to `expired` and the slot is released. |
+| **Payment** | Payment details for an enrollment. Supports multiple methods including donations (kg). When the method is `donation_item` or `hybrid`, the `donation_type` (dog/cat/bird food) is required for record-keeping. |
 
 ## Enums
 
 | Enum | Values |
 |---|---|
-| `enrollment_status` | pending, approved, rejected |
+| `enrollment_status` | pending, approved, rejected, expired |
 | `payment_status` | pending, confirmed |
 | `payment_origin` | online, in_person |
 | `payment_method` | credit_card, pix, cash, donation_item, hybrid, scholarship |
