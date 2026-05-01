@@ -26,8 +26,9 @@ Install the [DBML Live Preview](https://marketplace.visualstudio.com/items?itemN
 
 | Table | Description |
 |---|---|
-| **Course** | Available courses with name, description, duration, price and status. |
-| **Lesson** | Specific lesson sessions for a course, with date, time, capacity and assigned instructor. Supports an optional `label` (custom name, e.g. closed school groups) and `is_private` flag (hidden from public listing, admin-only enrollment). |
+| **Course** | Available courses with name, description, full syllabus (Markdown), duration, price, status, optional cover image (uploaded via admin into `MEDIA_ROOT/courses/`), minimum age, certificate flag and required food-donation amount. Has a many-to-many relationship with **Instructor** (a course is taught by 1+ instructors). |
+| **CourseInstructor** | Join table for the Course ↔ Instructor M2M. Each course must have at least 1 instructor (validated at the model level). |
+| **Lesson** | Specific lesson sessions for a course, with date, time, capacity and assigned instructor (1 instructor teaches each session). Supports an optional `label` (custom name, e.g. closed school groups) and `is_private` flag (hidden from public listing, admin-only enrollment). |
 
 ### Students, Enrollments & Payments
 

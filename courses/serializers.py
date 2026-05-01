@@ -4,7 +4,12 @@ from .models import Course, Lesson
 class CourseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Course
-        fields = ['id', 'name', 'description', 'duration_hours', 'price', 'status']
+        fields = [
+            'id', 'name', 'description', 'syllabus',
+            'duration_hours', 'price', 'status',
+            'image', 'min_age', 'has_certificate',
+            'donation_kg_required', 'instructors',
+        ]
 
 class LessonSerializer(serializers.ModelSerializer):
     class Meta:
