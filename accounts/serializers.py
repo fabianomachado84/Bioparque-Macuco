@@ -10,3 +10,17 @@ class InstructorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Instructor
         fields = ['id', 'employee', 'bio', 'specialty']
+
+
+class InstructorPublicSerializer(serializers.ModelSerializer):
+    """Lightweight instructor representation safe for public endpoints.
+
+    Exposes only the fields the public site needs (display name + specialty),
+    leaving private data like bio and employee id off the wire.
+    """
+
+    name = serializers.CharField(source='employee.display_name', read_only=True)
+
+    class Meta:
+        model = Instructor
+        fields = ['id', 'name', 'specialty']

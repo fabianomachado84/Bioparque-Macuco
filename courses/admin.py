@@ -57,9 +57,29 @@ class CourseAdmin(NativeDatePickerMixin, admin.ModelAdmin):
 
 @admin.register(Lesson)
 class LessonAdmin(NativeDatePickerMixin, admin.ModelAdmin):
-    list_display = ['course', 'start_date', 'start_time', 'end_time', 'capacity', 'instructor']
-    list_filter = ['course', 'instructor']
-    search_fields = ['course__name', 'instructor__employee__user__first_name']
+    list_display = ['course', 'label', 'start_date', 'start_time', 'end_time', 'capacity', 'instructor', 'is_private']
+    list_filter = ['course', 'instructor', 'is_private']
+    search_fields = [
+        'course__name',
+        'label',
+        'instructor__employee__user__first_name',
+        'instructor__employee__user__last_name',
+    ]
     list_per_page = 10
     ordering = ['course', 'start_date']
+    fieldsets = (
+        ('Curso', {
+            'fields': ('course', 'label'),
+        }),
+        ('Agenda', {
+            'fields': ('start_date', 'start_time', 'end_time'),
+        }),
+        ('Equipe e capacidade', {
+            'fields': ('instructor', 'capacity'),
+        }),
+        ('Visibilidade', {
+            'fields': ('is_private',),
+            'description': 'Turmas fechadas não aparecem na listagem pública e só podem receber inscrições via admin.',
+        }),
+    )
 

@@ -28,6 +28,12 @@ admin.site.index_title = "MacucoAdmin"
 urlpatterns = [
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
     path('sobre/', TemplateView.as_view(template_name='about.html'), name='about'),
+    path('cursos/', TemplateView.as_view(template_name='courses.html'), name='courses'),
+    path(
+        'cursos/<int:course_id>/',
+        TemplateView.as_view(template_name='course_detail.html'),
+        name='course_detail',
+    ),
     path('inscricao/', TemplateView.as_view(template_name='enrollment.html'), name='enrollment'),
     path('admin/', admin.site.urls),
     path('api/', include('courses.urls')),
