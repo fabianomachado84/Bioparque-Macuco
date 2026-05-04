@@ -33,6 +33,7 @@ urlpatterns = [
     path('api/', include('courses.urls')),
     path('api/', include('accounts.urls')),
     path('api/', include('enrollments.urls')),
+    path('api/', include('content.urls')),
 ]
 
 # In DEBUG, Django serves uploaded MEDIA files directly.
