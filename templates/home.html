@@ -3,6 +3,10 @@
 
 {% block title %}Bioparque Macuco - Manejo de Animais na Prática{% endblock %}
 
+{% block extra_js %}
+<script src="{% static 'js/carousel.js' %}"></script>
+{% endblock %}
+
 {% block content %}
 
 <!-- Hero -->
@@ -17,6 +21,26 @@
       <a href="#cursos" class="btn btn--olive">CONHEÇA OS CURSOS</a>
       <a href="#visita" class="btn btn--olive">PLANEJE SUA VISITA</a>
     </div>
+</section>
+
+<!-- Hero carousel (loaded from /api/banners/) -->
+<section class="carousel" id="hero-carousel" hidden aria-roledescription="carrossel" aria-label="Destaques do Bioparque">
+  <div class="carousel__viewport">
+    <ul class="carousel__track" id="carousel-track"></ul>
+  </div>
+
+  <button type="button" class="carousel__arrow carousel__arrow--prev" id="carousel-prev" aria-label="Banner anterior">
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="15 18 9 12 15 6"/>
+    </svg>
+  </button>
+  <button type="button" class="carousel__arrow carousel__arrow--next" id="carousel-next" aria-label="Próximo banner">
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="9 18 15 12 9 6"/>
+    </svg>
+  </button>
+
+  <div class="carousel__dots" id="carousel-dots" role="tablist" aria-label="Selecionar banner"></div>
 </section>
 
 <!-- Cursos em Destaque -->

@@ -12,6 +12,7 @@
 @import url('components/_support.css');
 @import url('components/_space.css');
 
+@import url('components/carousel.css');
 @import url('components/hero.css');
 @import url('components/courses.css');
 @import url('components/schedule.css');
