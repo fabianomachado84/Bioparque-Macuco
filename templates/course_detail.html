@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Detalhes do curso - Bioparque Macuco{% endblock %}
+
+{% block content %}
+<section class="course-detail" data-course-id="{{ course_id }}">
+  <div class="course-detail__container">
+    <a href="{% url 'courses' %}" class="course-detail__back" aria-label="Voltar para a lista de cursos">
+      <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="15 18 9 12 15 6"/>
+      </svg>
+    </a>
+
+    <div class="course-detail__layout">
+      <div class="course-detail__content">
+        <header class="course-detail__header">
+          <h1 class="course-detail__title" id="course-name">Carregando...</h1>
+          <p class="course-detail__subtitle">Roteiro</p>
+        </header>
+
+        <div class="course-detail__body" id="course-body">
+          <p class="course-detail__loading">Carregando conteúdo...</p>
+        </div>
+
+        <footer class="course-detail__instructors" id="course-instructors"></footer>
+      </div>
+
+      <aside class="course-detail__aside">
+        <div class="course-detail__image-wrapper">
+          <img id="course-image" src="{% static 'images/curso-placeholder.svg' %}" alt="">
+        </div>
+
+        <div class="course-detail__info" id="course-info">
+          <p class="course-detail__loading">Buscando próxima turma...</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<!-- Markdown renderer for the syllabus field -->
+<script src="https://cdn.jsdelivr.net/npm/marked@15.0.0/marked.min.js"></script>
+<script src="{% static 'js/course-detail.js' %}"></script>
+{% endblock %}
