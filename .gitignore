@@ -12,3 +12,5 @@ __pycache__/
 
 # Django uploads (do not version content uploaded via admin)
 media/
+
+macuco-web-app/
